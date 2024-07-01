@@ -1,0 +1,172 @@
+{
+  "main": {
+    "id": "9cd6bee697bac9f9",
+    "type": "split",
+    "children": [
+      {
+        "id": "38f811b40f170721",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fee4a3aceb8149c7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c6898b58c9937e48",
+    "type": "split",
+    "children": [
+      {
+        "id": "7491ef5374aa291c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7f6b61fdcb62127f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "c33899f0756e2c9f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#note-taking",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b6f076320252c216",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "fb6c3f0dae1796ee",
+    "type": "split",
+    "children": [
+      {
+        "id": "c83abb6b2fec02e4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7471ad22c938e069",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "596a9797e6dbe0a6",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2ebaf0aa8ba6c82d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "936be452e8f28e2d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-projects:Open projects": false
+    }
+  },
+  "active": "fee4a3aceb8149c7",
+  "lastOpenFiles": [
+    "tasks/NRF-E1.md",
+    "README.md",
+    "tasks/[NRF-1] Setup repo on github.md",
+    "_assets/Screenshot 2024-07-01 180431 1.png",
+    "_assets/Screenshot 2024-07-01 180431.png",
+    "Welcome.md",
+    "tasks/[NRF-0] Test ticket to check all the settings.md",
+    "tasks/test.md",
+    "_template/template.md",
+    "Projects - Demo Project/Why You Should Be Taking More Notes.md",
+    "Projects - Demo Project/What I Learned From Taking 15,000 Notes.md",
+    "Projects - Demo Project/The Easiest Way to Start Taking Notes.md",
+    "Projects - Demo Project/The Best Notes You'll Ever Make.md",
+    "Abhishek.md",
+    "tasks",
+    "_assets",
+    "_template",
+    "Projects - Demo Project"
+  ]
+}

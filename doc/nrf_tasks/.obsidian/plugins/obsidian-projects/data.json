@@ -1,0 +1,104 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "fieldConfig": {},
+      "defaultName": "",
+      "templates": [
+        "_template/template.md"
+      ],
+      "excludedNotes": [],
+      "isDefault": true,
+      "dataSource": {
+        "kind": "folder",
+        "config": {
+          "path": "tasks",
+          "recursive": false
+        }
+      },
+      "newNotesFolder": "tasks",
+      "views": [
+        {
+          "config": {
+            "fieldConfig": {
+              "path": {
+                "hide": true
+              }
+            },
+            "orderFields": [
+              "name",
+              "Assigned to",
+              "Epic",
+              "Status",
+              "Git",
+              "Due",
+              "Created",
+              "tags"
+            ]
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "344c8b88-07ad-4c20-8661-bd21d44087bf",
+          "name": "Table",
+          "type": "table"
+        },
+        {
+          "config": {
+            "groupByField": "Status"
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "4e8c4158-1bb3-410d-9633-43988abc840c",
+          "name": "Board",
+          "type": "board"
+        },
+        {
+          "config": {
+            "dateField": "Due",
+            "interval": "month"
+          },
+          "filter": {
+            "conjunction": "and",
+            "conditions": []
+          },
+          "colors": {
+            "conditions": []
+          },
+          "sort": {
+            "criteria": []
+          },
+          "id": "1a688669-d01c-4c79-bfab-bb01087d3370",
+          "name": "Calendar",
+          "type": "calendar"
+        }
+      ],
+      "id": "7510da27-ecc1-4fdb-9025-885c158c2be2",
+      "name": "NRF_tasks"
+    }
+  ],
+  "archives": [],
+  "preferences": {
+    "projectSizeLimit": 1000,
+    "frontmatter": {
+      "quoteStrings": "PLAIN"
+    },
+    "commands": [],
+    "linkBehavior": "open-editor"
+  }
+}
