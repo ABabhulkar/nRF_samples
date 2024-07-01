@@ -7,7 +7,7 @@ Obsidian is a wiki software which has markdown as a backend. It supports long li
 
 ### Project workflow
 
-![[Screenshot 2024-07-01 180431.png]]
+![Branching strategy](/_assets/branch.png)
 - Use task ID while creating branches in git and also in PR title so that traceability can be maintained
 - Create Draft PR as soon as work on the ticket is started and put the link of same in ticket properties
 - Prefer to use signed commit's, however this is optional

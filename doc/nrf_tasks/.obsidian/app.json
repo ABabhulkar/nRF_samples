@@ -1,5 +1,6 @@
 {
   "newFileLocation": "folder",
   "newFileFolderPath": "tasks",
-  "attachmentFolderPath": "_assets"
+  "attachmentFolderPath": "_assets",
+  "useMarkdownLinks": true
 }
