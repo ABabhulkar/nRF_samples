@@ -1,14 +1,24 @@
+- [[#Introduction|Introduction]]
+- [[#Project workflow|Project workflow]]
+- [[#Setup for documentation|Setup for documentation]]
+- [[#Guidelines for task management|Guidelines for task management]]
+			- [[#1. Epics|1. Epics]]
+			- [[#2. Tasks|2. Tasks]]
+- [Notes](Notes)
+- [[#References|References]]
+
 ### Introduction
 Obsidian is a wiki software which has markdown as a backend. It supports long list of plugins which can add different features. However in this project only following plugin is essential.
 - [Projects](https://github.com/marcusolsson/obsidian-projects)
 - [Git](https://github.com/denolehov/obsidian-git)
+- [Table of content](https://github.com/hipstersmoothie/obsidian-plugin-toc)
 
 > [!Note]
 > Please don't push another plugin or change any settings without discussion with all collaborators
 
 ### Project workflow
 
-[Branching strategy](_assets/branch.png)
+![Branching strategy](_assets/branch.png)
 - Use task ID while creating branches in git and also in PR title so that traceability can be maintained
 - Create Draft PR as soon as work on the ticket is started and put the link of same in ticket properties
 - Prefer to use signed commit's, however this is optional
@@ -43,3 +53,7 @@ Obsidian is a wiki software which has markdown as a backend. It supports long li
 > 3. **InReview** : Once PR is created and rework is in progress
 > 4. **Done** : Once PR is merged
 
+### References
+
+- [[Notes#^275f75|Reference Videos]]
+- [nRF connect doc link](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/installation/install_ncs.html)
