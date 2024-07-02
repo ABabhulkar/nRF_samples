@@ -1,6 +1,7 @@
 ### Introduction
 Obsidian is a wiki software which has markdown as a backend. It supports long list of plugins which can add different features. However in this project only following plugin is essential.
 - [Projects](https://github.com/marcusolsson/obsidian-projects)
+- [Git](https://github.com/denolehov/obsidian-git)
 
 > [!Note]
 > Please don't push another plugin or change any settings without discussion with all collaborators

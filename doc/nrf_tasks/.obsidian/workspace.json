@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "38f811b40f170721",
+        "id": "e73c10ab4a4e8207",
         "type": "tabs",
         "children": [
           {
-            "id": "fee4a3aceb8149c7",
+            "id": "44e503c5894eade0",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -148,12 +148,13 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "fee4a3aceb8149c7",
+  "active": "44e503c5894eade0",
   "lastOpenFiles": [
-    "_assets/branch.png",
-    "README.md",
     "tasks/NRF-E1.md",
+    "README.md",
     "tasks/[NRF-1] Setup repo on github.md",
+    "_assets/branch.png",
+    "_assets/Screenshot.md",
     "_assets/Screenshot 2024-07-01 180431 1.png",
     "Welcome.md",
     "tasks/[NRF-0] Test ticket to check all the settings.md",
