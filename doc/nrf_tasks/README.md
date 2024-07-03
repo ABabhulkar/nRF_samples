@@ -12,6 +12,7 @@ Obsidian is a wiki software which has markdown as a backend. It supports long li
 - [Projects](https://github.com/marcusolsson/obsidian-projects)
 - [Git](https://github.com/denolehov/obsidian-git)
 - [Table of content](https://github.com/hipstersmoothie/obsidian-plugin-toc)
+- [Mermaid](https://github.com/dartungar/obsidian-mermaid)
 
 > [!Note]
 > Please don't push another plugin or change any settings without discussion with all collaborators

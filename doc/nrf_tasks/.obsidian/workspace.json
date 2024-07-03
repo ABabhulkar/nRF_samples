@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Topics to cover.md",
+                "file": "README.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -100,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Topics to cover.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Topics to cover.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Topics to cover.md"
+                "file": "README.md"
               }
             }
           },
@@ -173,8 +173,8 @@
   },
   "active": "847074e39918efb8",
   "lastOpenFiles": [
-    "tasks/[NRF-5] 1C - 2P Communication bridge.md",
     "Topics to cover.md",
+    "tasks/[NRF-5] 1C - 2P Communication bridge.md",
     "tasks/[NRF-6] Simple application with OTA.md",
     "README.md",
     "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
