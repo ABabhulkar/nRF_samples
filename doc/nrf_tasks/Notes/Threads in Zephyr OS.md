@@ -1,5 +1,6 @@
 Source is [[Notes#^57fbd5]]
 > [!Info]
+> 
 > K_THREAD_DEFINE(thread_id, stack_size, thread_functions, arg1, arg2, arg3, priority, options, delay)
 
 - **thread_id:** name of the thread

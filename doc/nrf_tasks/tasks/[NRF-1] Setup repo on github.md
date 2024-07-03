@@ -2,7 +2,7 @@
 Epic: "[[NRF-E1]]"
 Created: 2024-07-01
 Due: 2024-07-03
-Status: InProgress
+Status: InReview
 Assigned to: "[[Abhishek]]"
 tags:
   - "#setup"
@@ -22,3 +22,4 @@ Initial setup of GitHub repository is required along with some restrictions for 
 - Github repository is ready
 - Obsidian is almost ready with all imp plugins and settings done
 - Draft for the guidelines is ready [[Naren]] to check and confirm
+- doc branch is created
