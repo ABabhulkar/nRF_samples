@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "bb36751b20d36749",
+            "id": "1da339c91bbe2a0e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Topics to cover.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -21,7 +21,7 @@
             }
           },
           {
-            "id": "0365fdea7234ea96",
+            "id": "847074e39918efb8",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -143,6 +143,14 @@
                 "file": "Topics to cover.md"
               }
             }
+          },
+          {
+            "id": "d1cc6c96f1cc8f95",
+            "type": "leaf",
+            "state": {
+              "type": "mermaid-toolbar-view",
+              "state": {}
+            }
           }
         ],
         "currentTab": 3
@@ -159,20 +167,26 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-projects:Open projects": false
+      "obsidian-projects:Open projects": false,
+      "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "0365fdea7234ea96",
+  "active": "847074e39918efb8",
   "lastOpenFiles": [
-    "README.md",
+    "tasks/[NRF-5] 1C - 2P Communication bridge.md",
     "Topics to cover.md",
+    "tasks/[NRF-6] Simple application with OTA.md",
+    "README.md",
+    "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
+    "Untitled.canvas",
+    "tasks/[NRF-3] Create first application.md",
+    "tasks/[NRF-2] Dev environment setup.md",
     "tasks/[NRF-1] Setup repo on github.md",
+    "tasks/NRF-E1.md",
     "Notes/Threads in Zephyr OS.md",
     "Notes/Notes.md",
-    "tasks/[NRF-2] Dev environment setup.md",
     "Notes/Notes^294f53.md",
     "tasks/^294f53.md",
-    "tasks/NRF-E1.md",
     "Notes",
     "_assets/branch.png",
     "_assets/Screenshot.md",

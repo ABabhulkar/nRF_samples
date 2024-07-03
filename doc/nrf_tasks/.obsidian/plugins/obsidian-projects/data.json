@@ -23,6 +23,24 @@
             "fieldConfig": {
               "path": {
                 "hide": true
+              },
+              "Git": {
+                "hide": true
+              },
+              "Status": {
+                "width": 114
+              },
+              "Created": {
+                "width": 121
+              },
+              "name": {
+                "width": 500
+              },
+              "Assigned to": {
+                "width": 150
+              },
+              "Due": {
+                "width": 105
               }
             },
             "orderFields": [
@@ -30,9 +48,8 @@
               "Assigned to",
               "Epic",
               "Status",
-              "Git",
-              "Due",
               "Created",
+              "Due",
               "tags"
             ]
           },

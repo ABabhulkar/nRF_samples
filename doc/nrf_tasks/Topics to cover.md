@@ -1,13 +1,14 @@
 #### Things to do with nRF53 board
-- [ ] Nordic UART service switch (Sample 1C-1P): setup 1C-2P
+- [ ] Nordic UART service switch (Sample 1C-1P): setup 1C-2P [[[NRF-3] Create first application|NRF3]], [[[NRF-4] Update UART central to connect with 2 nodes|NRF-4]], [[[NRF-5] 1C - 2P Communication bridge|NRF-5]]
 - [ ] Gather sensor data and upload to MQTT (BLE + WiFi): understanding wifi companion communication.
 - [ ] HTTP based: Gather sensor readings and send the data on HTTP server. (1 server board - 1 client board)
 - [ ] Deep sleep: NFC based pairing and wakeup from deep sleep
 - [ ] BLE mesh: **TBD**
 - [ ] nRF53 Samples: Work with multi core and do inter core communication.
-- [ ] Cryptography: **TBD** 
+- [ ] Cryptography: [[[NRF-5] 1C - 2P Communication bridge|NRF-5]], **TBD**
 - [ ] MCUBoot: **TBD**
-- [ ] OTA: **TBD**
+- [ ] OTA: [[[NRF-6] Simple application with OTA]], **TBD**
+- [ ] Testing framework: **TBD**
 
 #### PoC Ideas
 1. Connectivity Bridge (Modbus to BLE)
