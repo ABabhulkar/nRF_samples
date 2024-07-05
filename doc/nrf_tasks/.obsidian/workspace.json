@@ -8,33 +8,19 @@
         "type": "tabs",
         "children": [
           {
-            "id": "1da339c91bbe2a0e",
+            "id": "f8f8416dbef22b34",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Topics to cover.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "847074e39918efb8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
+                "file": "Notes/Build config.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -100,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Notes/Build config.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "Notes/Build config.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "Notes/Build config.md"
               }
             }
           },
@@ -157,7 +143,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -171,12 +158,15 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "847074e39918efb8",
+  "active": "f8f8416dbef22b34",
   "lastOpenFiles": [
+    "Notes/Notes.md",
+    "Notes/Devicetree.md",
+    "Notes/Build config.md",
+    "README.md",
     "Topics to cover.md",
     "tasks/[NRF-5] 1C - 2P Communication bridge.md",
     "tasks/[NRF-6] Simple application with OTA.md",
-    "README.md",
     "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
     "Untitled.canvas",
     "tasks/[NRF-3] Create first application.md",
@@ -184,7 +174,6 @@
     "tasks/[NRF-1] Setup repo on github.md",
     "tasks/NRF-E1.md",
     "Notes/Threads in Zephyr OS.md",
-    "Notes/Notes.md",
     "Notes/Notes^294f53.md",
     "tasks/^294f53.md",
     "Notes",
