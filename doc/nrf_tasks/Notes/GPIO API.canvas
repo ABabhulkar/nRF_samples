@@ -1,0 +1,20 @@
+{
+	"nodes":[
+		{"id":"a94a1c1881162d58","type":"text","text":"#### 2. Configure a single pin\n\n```c\ngpio_pin_configure_dt(&led, GPIO_OUTPUT);\n```\nArg2: extra_flags which is configuration related to pin.\nMultiple flags can be combined with `|` operator.\n[All flags for GPIO](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/hardware/peripherals/gpio.html#api_reference)","x":-94,"y":-240,"width":454,"height":200},
+		{"id":"321df88d34883bd8","type":"text","text":"#### 3. Write to output pin\n```c\ngpio_pin_set_dt(&led, 1); // 1 - active, 0 - deactive\n```\nIf you want to toggle the status of the pin use following:\n```c\ngpio_pin_toggle_dt(&led);\n```\n","x":450,"y":-360,"width":550,"height":240},
+		{"id":"efb1f30bf1ba58b6","type":"text","text":"#### 3.Read from Input pin","x":450,"y":-70,"width":275,"height":60},
+		{"id":"b50aec7b6eabded3","type":"text","text":"##### Interrupt\n- This is the recommended way to read an input pin.\n- You can only configure an interrupt on a GPIO pin configured as an input.","x":170,"y":80,"width":380,"height":189},
+		{"id":"9e78a3b1ab62acf5","type":"text","text":"##### Polling\n\n```c\nval = gpio_pin_get_dt(&led); \n```\nThis is usually not optimal from performance and power perspectives as it requires the CPU’s constant attention.","x":620,"y":80,"width":380,"height":197},
+		{"id":"875050878ca26775","type":"text","text":"###### Steps to configure ISR\n```c\n// Step 1:Configure the interrupt on a pin. \ngpio_pin_interrupt_configure_dt(&button,GPIO_INT_EDGE_TO_ACTIVE); \n\n//Step 2: Define callback function pin_isr()\nvoid pin_isr(const struct device *dev, struct gpio_callback *cb, gpio_port_pins_t pins)\n{/*your code*/}\n\n//Step 3: Define a variable\nstatic struct gpio_callback pin_cb_data;\n\n// Step 4: Initialize callback\ngpio_init_callback(&pin_cb_data, pin_isr, BIT(dev.pin));\n\n// Step 5: Add the callback function\ngpio_add_callback(button.port, &pin_cb_data);\n\n```\n\n- [Interrupt options](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/reference/peripherals/gpio.html#c.GPIO_INT_DISABLE)\n- [gpio_callback](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/hardware/peripherals/gpio.html#c.gpio_callback)","x":95,"y":320,"width":530,"height":600},
+		{"id":"c154362055111804","type":"text","text":"#### 1. Initializing\n\n```c\nstatic const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED0_NODE, gpios);\n\nif (!gpio_is_ready_dt(&led)) {\n\treturn 0;\n}\n```\n\n`led_0` as an example, which has the devicetree implementation","x":-600,"y":-300,"width":400,"height":320},
+		{"id":"def6562c6594d761","type":"file","file":"_assets/Pasted image 20240705135118.png","x":-600,"y":40,"width":399,"height":104}
+	],
+	"edges":[
+		{"id":"b309088e866c9227","fromNode":"c154362055111804","fromSide":"right","toNode":"a94a1c1881162d58","toSide":"left"},
+		{"id":"131c13cfb03ec2ae","fromNode":"a94a1c1881162d58","fromSide":"right","toNode":"321df88d34883bd8","toSide":"left"},
+		{"id":"18b452a621ee6c18","fromNode":"a94a1c1881162d58","fromSide":"right","toNode":"efb1f30bf1ba58b6","toSide":"left"},
+		{"id":"7c03c6561b6c6195","fromNode":"efb1f30bf1ba58b6","fromSide":"bottom","toNode":"b50aec7b6eabded3","toSide":"top"},
+		{"id":"5f6e394cc17cffa9","fromNode":"efb1f30bf1ba58b6","fromSide":"bottom","toNode":"9e78a3b1ab62acf5","toSide":"top"},
+		{"id":"b5018b4f09d45156","fromNode":"b50aec7b6eabded3","fromSide":"bottom","toNode":"875050878ca26775","toSide":"top"}
+	]
+}

@@ -1,8 +1,8 @@
 - [Threads in Zephyr OS](Threads%20in%20Zephyr%20OS.md)
 - [Nordic boards](Build%20config.md)
 - [Devicetree](Devicetree.md)
-- 
-
+- [[Device Driver]]
+- [[GPIO API.canvas|GPIO API]]
 ### References Videos
 
 ^275f75

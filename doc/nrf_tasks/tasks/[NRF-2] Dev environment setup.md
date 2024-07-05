@@ -20,6 +20,7 @@ Video series for a reference. [[Notes#^a6d648|mRF connect setup]]
 ---
 [[Abhishek]]
 - All steps are done
+- [[Board recovery if not detected]]
 
 [[Naren]]
 - TODO
