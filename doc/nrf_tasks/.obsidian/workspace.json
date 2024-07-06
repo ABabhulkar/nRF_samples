@@ -8,25 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f8f8416dbef22b34",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Notes/Build config.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
             "id": "bc282b56d74158f7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Notes.md",
+                "file": "tasks/Elements of SDK.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -83,7 +70,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "fb6c3f0dae1796ee",
@@ -99,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Build config.md",
+                "file": "tasks/Elements of SDK.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Build config.md",
+                "file": "tasks/Elements of SDK.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Build config.md"
+                "file": "tasks/Elements of SDK.md"
               }
             }
           },
@@ -171,13 +159,17 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "f8f8416dbef22b34",
+  "active": "bc282b56d74158f7",
   "lastOpenFiles": [
+    "_assets/Pasted image 20240706161640.png",
     "Notes/Notes.md",
-    "Notes/GPIO API.canvas",
-    "_assets/Pasted image 20240705135118.png",
+    "tasks/Elements of SDK.md",
+    "_assets/Pasted image 20240706160046.png",
     "README.md",
     "Notes/Build config.md",
+    "_assets/clang-format.txt",
+    "Notes/GPIO API.canvas",
+    "_assets/Pasted image 20240705135118.png",
     "Notes/Device Driver.md",
     "_assets/Pasted image 20240705112649.png",
     "_assets/Pasted image 20240705112255.png",
@@ -204,7 +196,6 @@
     "_template/template.md",
     "Projects - Demo Project/Why You Should Be Taking More Notes.md",
     "Projects - Demo Project/What I Learned From Taking 15,000 Notes.md",
-    "Projects - Demo Project/The Easiest Way to Start Taking Notes.md",
     "tasks",
     "_assets",
     "_template",
