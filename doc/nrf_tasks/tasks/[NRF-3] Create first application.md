@@ -15,7 +15,7 @@ Create first application by taking nordic UART service sample as base.
 **Scope:** Add a sensor reading gathering in a parallel thread.
 **Topics to learn:**
 - IPC communication
-- Life cycle of [[Threads in Zephyr OS]]
+- Life cycle of [[User defined threads]]
 
 #### Sub-Task
 - [ ] Create an application with nRF53 board

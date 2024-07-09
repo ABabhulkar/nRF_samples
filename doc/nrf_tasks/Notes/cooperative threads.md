@@ -1,0 +1,2 @@
+A thread with a **negative priority** is classified as a **cooperative thread**. Once a cooperative thread becomes the current thread, it will remain so until it performs an action that makes it unready.
+The number of **negative priorities**, which is associated with cooperative threads, is configurable through the Kconfig symbol `CONFIG_NUM_COOP_PRIORITIES` and is, by default, equal to **16**.

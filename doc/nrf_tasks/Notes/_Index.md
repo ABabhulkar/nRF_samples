@@ -1,9 +1,14 @@
-## Multi-Image Builds- [Threads in Zephyr OS](Threads%20in%20Zephyr%20OS.md)
+## Multi-Image Builds
+- [User defined threads](User%20defined%20threads.md)
 - [Nordic boards](Build%20config.md)
 - [Devicetree](Devicetree.md)
 - [[Device Driver]]
 - [[GPIO API.canvas|GPIO API]]
 - [[Elements of SDK]]
+- [[Adding custom configurations]]
+- [[printk()]]
+- [[Logger module]]
+- [[Zephyr RTOS basics]]
 - 
 ### References Videos
 

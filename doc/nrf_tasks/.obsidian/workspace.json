@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tasks/Elements of SDK.md",
+                "file": "Notes/Workqueue threads.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#note-taking",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -66,12 +66,12 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "fb6c3f0dae1796ee",
@@ -87,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tasks/Elements of SDK.md",
+                "file": "Notes/Workqueue threads.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tasks/Elements of SDK.md",
+                "file": "Notes/Workqueue threads.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tasks/Elements of SDK.md"
+                "file": "Notes/Workqueue threads.md"
               }
             }
           },
@@ -161,9 +161,23 @@
   },
   "active": "bc282b56d74158f7",
   "lastOpenFiles": [
+    "Notes/Zephyr RTOS basics.md",
+    "Notes/Workqueue threads.md",
+    "Notes/User defined threads.md",
+    "Notes/_Index.md",
+    "Notes/Time sequences for scheduling.canvas",
+    "Notes/printk().md",
+    "Notes/Scheduler.md",
+    "_assets/Pasted image 20240709103250.png",
+    "_assets/Pasted image 20240709095211.png",
+    "_assets/Pasted image 20240709094211.png",
+    "Notes/cooperative threads.md",
+    "Notes/preemptible threads.md",
+    "_assets/Pasted image 20240708162724.png",
+    "Notes/Logger module.md",
+    "Notes/Elements of SDK.md",
+    "Notes/Adding custom configurations.md",
     "_assets/Pasted image 20240706161640.png",
-    "Notes/Notes.md",
-    "tasks/Elements of SDK.md",
     "_assets/Pasted image 20240706160046.png",
     "README.md",
     "Notes/Build config.md",
@@ -183,19 +197,10 @@
     "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
     "tasks/[NRF-3] Create first application.md",
     "tasks/NRF-E1.md",
-    "Notes/Threads in Zephyr OS.md",
     "Notes/Notes^294f53.md",
     "tasks/^294f53.md",
     "Notes",
     "_assets/branch.png",
-    "_assets/Screenshot.md",
-    "_assets/Screenshot 2024-07-01 180431 1.png",
-    "Welcome.md",
-    "tasks/[NRF-0] Test ticket to check all the settings.md",
-    "tasks/test.md",
-    "_template/template.md",
-    "Projects - Demo Project/Why You Should Be Taking More Notes.md",
-    "Projects - Demo Project/What I Learned From Taking 15,000 Notes.md",
     "tasks",
     "_assets",
     "_template",

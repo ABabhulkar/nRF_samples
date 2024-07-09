@@ -10,12 +10,12 @@ Git:
 ---
 #### Description
 Setup dev environment and compile **BLE UART** peripheral application.
-Video series for a reference. [[Notes#^a6d648|mRF connect setup]]
+Video series for a reference. [[_Index#^a6d648|mRF connect setup]]
 
 #### Sub-Task
 - Setup latest sdk and toolchain version
 - Explore other samples and config files\
-- Go through basics of [[Notes#^57fbd5|Zephyer OS]]
+- Go through basics of [[_Index#^57fbd5|Zephyer OS]]
 
 ---
 [[Abhishek]]

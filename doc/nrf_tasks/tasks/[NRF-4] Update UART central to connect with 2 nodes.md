@@ -16,7 +16,7 @@ Create first application by taking nordic UART service sample as base.
 **Topics to learn:**
 - Project configuration (BLE parameter)
 - Passing arguments to threads
-- Explore if multiple [[Threads in Zephyr OS]] can use same runnable
+- Explore if multiple [[User defined threads]] can use same runnable
 
 #### Sub-Task
 - [ ] Create application by taking UART central sample as a base

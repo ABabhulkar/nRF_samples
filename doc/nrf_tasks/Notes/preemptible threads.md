@@ -1,0 +1,2 @@
+Once a preemptible thread becomes the current thread, it may be replaced at any time if a cooperative thread or a preemptible thread of higher or equal priority becomes ready.
+The number of **non-negative priorities** , which is associated with preemptible threads, is configurable through the Kconfig symbol `CONFIG_NUM_PREEMPT_PRIORITIES` and is, by default, equal to **15**.

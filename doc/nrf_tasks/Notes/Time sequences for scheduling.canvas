@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"01b605196cbed641","type":"file","file":"_assets/Pasted image 20240709094211.png","x":-740,"y":-163,"width":510,"height":410},
+		{"id":"a1e914ef8e0f87a5","type":"text","text":"Time sequence for k_yield ","x":-610,"y":-260,"width":250,"height":60},
+		{"id":"0c9ad257b6db1cb8","type":"file","file":"_assets/Pasted image 20240709095211.png","x":-180,"y":-163,"width":598,"height":410},
+		{"id":"201ec6efe0a85b57","type":"file","file":"_assets/Pasted image 20240709103250.png","x":480,"y":-163,"width":584,"height":410},
+		{"id":"dca04ea31a1f7501","type":"text","text":"Time slicing ","x":647,"y":-260,"width":250,"height":60},
+		{"id":"de454ee35b714e52","type":"text","text":"Time sequence for threads with k_msleep","x":-6,"y":-260,"width":250,"height":60}
+	],
+	"edges":[]
+}
