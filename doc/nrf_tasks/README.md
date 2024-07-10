@@ -23,7 +23,8 @@ Obsidian is a wiki software which has markdown as a backend. It supports long li
 - Use task ID while creating branches in git and also in PR title so that traceability can be maintained
 - Create Draft PR as soon as work on the ticket is started and put the link of same in ticket properties
 - Prefer to use signed commit's, however this is optional
-- Use this file for clang_formatting : [[clang-format.txt]]
+> [!Important] 
+> Use this file for clang_formatting : [[clang-format.txt]]
 
 ### Setup for documentation
 1. Install Obsidian software
@@ -59,4 +60,7 @@ Obsidian is a wiki software which has markdown as a backend. It supports long li
 
 - [[_Index#^275f75|Reference Videos]]
 - [nRF connect doc link](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/installation/install_ncs.html)
-- [nRF connect fundamentals](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/nrf-connect-sdk-structure-and-content/)
+- [nRF connect fundamentals](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/nrf-connect-sdk-structure-and-content/) ^95fe53
+	- [Github repo for examples](https://github.com/NordicDeveloperAcademy/ncs-fund/tree/main)
+- [nRF Connect SDK Intermediate](https://academy.nordicsemi.com/courses/nrf-connect-sdk-intermediate/) ^8fab80
+- 

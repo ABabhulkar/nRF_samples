@@ -13,14 +13,41 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Workqueue threads.md",
+                "file": "README.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "20a6b9ea3ca2351c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tasks/[NRF-3] Create first application.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "37349de73d509a22",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes/Board recovery if not detected.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -49,7 +76,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "clang",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -66,12 +93,12 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "fb6c3f0dae1796ee",
@@ -87,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Workqueue threads.md",
+                "file": "Notes/Board recovery if not detected.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Workqueue threads.md",
+                "file": "Notes/Board recovery if not detected.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +154,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Workqueue threads.md"
+                "file": "Notes/Board recovery if not detected.md"
               }
             }
           },
@@ -159,17 +186,31 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "bc282b56d74158f7",
+  "active": "37349de73d509a22",
   "lastOpenFiles": [
+    "README.md",
+    "Notes/_Index.md",
+    "tasks/[NRF-2] Dev environment setup.md",
+    "tasks/[NRF-3] Create first application.md",
+    "tasks/[NRF-7] Zephyr RTOS beyond basics.md",
+    "Notes/Mutexes.md",
+    "_assets/Pasted image 20240709103250.png",
+    "_assets/Pasted image 20240705135118.png",
+    "_assets/Pasted image 20240709095211.png",
+    "Topics to cover.md",
+    "tasks/[NRF-5] 1C - 2P Communication bridge.md",
+    "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
+    "Notes/User defined threads.md",
+    "Notes/Semaphores.md",
+    "_assets/Pasted image 20240709130427.png",
+    "_assets/Pasted image 20240709125939.png",
     "Notes/Zephyr RTOS basics.md",
     "Notes/Workqueue threads.md",
-    "Notes/User defined threads.md",
-    "Notes/_Index.md",
+    "_assets/Pasted image 20240709113118.png",
+    "_assets/Pasted image 20240709110830.png",
     "Notes/Time sequences for scheduling.canvas",
     "Notes/printk().md",
     "Notes/Scheduler.md",
-    "_assets/Pasted image 20240709103250.png",
-    "_assets/Pasted image 20240709095211.png",
     "_assets/Pasted image 20240709094211.png",
     "Notes/cooperative threads.md",
     "Notes/preemptible threads.md",
@@ -178,29 +219,15 @@
     "Notes/Elements of SDK.md",
     "Notes/Adding custom configurations.md",
     "_assets/Pasted image 20240706161640.png",
-    "_assets/Pasted image 20240706160046.png",
-    "README.md",
     "Notes/Build config.md",
     "_assets/clang-format.txt",
     "Notes/GPIO API.canvas",
-    "_assets/Pasted image 20240705135118.png",
     "Notes/Device Driver.md",
-    "_assets/Pasted image 20240705112649.png",
-    "_assets/Pasted image 20240705112255.png",
     "Notes/Board recovery if not detected.md",
-    "tasks/[NRF-2] Dev environment setup.md",
     "tasks/[NRF-1] Setup repo on github.md",
     "Notes/Devicetree.md",
-    "Topics to cover.md",
-    "tasks/[NRF-5] 1C - 2P Communication bridge.md",
     "tasks/[NRF-6] Simple application with OTA.md",
-    "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
-    "tasks/[NRF-3] Create first application.md",
-    "tasks/NRF-E1.md",
-    "Notes/Notes^294f53.md",
-    "tasks/^294f53.md",
     "Notes",
-    "_assets/branch.png",
     "tasks",
     "_assets",
     "_template",

@@ -2,7 +2,7 @@
 Epic: "[[[NRF-E2] BLE sample with multi threading]]"
 Created: 2024-07-03
 Due: 
-Status: Backlog
+Status: InProgress
 Assigned to: "[[Abhishek]]"
 tags:
   - "#SmallSamples"
@@ -18,9 +18,11 @@ Create first application by taking nordic UART service sample as base.
 - Life cycle of [[User defined threads]]
 
 #### Sub-Task
-- [ ] Create an application with nRF53 board
-- [ ] (Optional) Add support for nRF52 board
-- [ ] Add logs on all life cycle methods
+- [x] Create an application with nRF53 board
+- [x] (Optional) Add support for nRF52 board 
+	- 09-07-02024: Not a big deal just have to add one build config.
+- [x] [[README#^95fe53| nRF connect fundamentals]] course from Nordic 
+- [ ] ~~Add logs on all life cycle methods~~ [[[NRF-7] Zephyr RTOS beyond basics|[NRF-7]]]
 - [ ] There should be 2 threads one for BLE UART handling and one for sensor data gathering
 	- Sensor thread
 		- Create a counter which should be initialized once on thread creation.
@@ -35,3 +37,18 @@ Create first application by taking nordic UART service sample as base.
 #### Task Relationships
 - Blocked By: 
 	- [[[NRF-2] Dev environment setup]]
+		- 09-07-2024: Unblocked
+
+---
+##### 09-07-2024 [[Abhishek]]
+**Learnings till now**
+- Project creation, build and flash
+- Basics of kconfig gui and prj.config
+- Creation and synchronization of threads
+- Using logger
+- Completed Nordic connect fundamental courses
+**Next Steps:**
+- [ ] Create branch and new application from BLE uart service
+- [ ] Start working on task goal
+- [ ] (Optional) Get the RTT logger backend running
+

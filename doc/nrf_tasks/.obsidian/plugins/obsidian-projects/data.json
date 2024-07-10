@@ -41,6 +41,9 @@
               },
               "Due": {
                 "width": 105
+              },
+              "tags": {
+                "width": 313
               }
             },
             "orderFields": [
