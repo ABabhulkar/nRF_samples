@@ -35,3 +35,78 @@ Source is [[_Index#^57fbd5]]
 ##### Thread synchronization
 Two mechanisms you can utilize to achieve thread synchronization are [[Semaphores]] or [[Mutexes]]. They have some differing properties, but in essence they are both variables that are changed before and after the critical section by a thread to make sure that no other threads can execute the segment before that thread has completed it.
 The main differences are that semaphores have a maximum value that is set at initialization, while mutexes have ownership property, i.e only the thread incrementing its value can decrement it, until zero when it is relinquished.
+
+##### Examples
+1. Static and dynamic thread creation
+```c
+#include <stdint.h>
+#include <zephyr/kernel.h>
+#include <zephyr/sys/printk.h>
+
+// Thread stack size for simplicity it is same for all.
+#define STACKSIZE 1024
+
+// Thread priority
+#define THREAD0_PRIORITY 6
+#define THREAD1_PRIORITY 7
+#define THREAD2_PRIORITY 7
+
+// Runnable for thread 0: This thread will never stop
+void thread0(void)
+{
+    while (1) {
+        printk("Hello, I am thread0\n");
+        k_msleep(1000);
+    }
+}
+
+// Runnable for thread 1: This thread will never stop
+void thread1(void)
+{
+    while (1) {
+        printk("Hello, I am thread1\n");
+        k_msleep(1000);
+    }
+}
+  
+// Runnable for thread 2: This thread will end once task is done
+void thread2(void* arg0, void* arg1, void* agr2)
+{
+    for (int32_t i = 0; i < 10; i++) {
+        printk("Hello, I am thread2 : %d\n", i);
+        k_busy_wait(1000000);
+    }
+}
+
+// Defining stack for dynamic thread
+K_THREAD_STACK_DEFINE(my_stack_area, STACKSIZE);
+  
+int main(void)
+{
+    while (1) {
+        // Dynamic thread creation
+        struct k_thread my_thread_data;
+        k_tid_t my_tid =
+            k_thread_create(&my_thread_data, my_stack_area, K_THREAD_STACK_SIZEOF(my_stack_area),
+                            thread2, NULL, NULL, NULL, THREAD2_PRIORITY, 0, K_NO_WAIT);
+ 
+        //----- This is wait and abort thread ------//
+        k_msleep(5000);
+        k_thread_abort(my_tid);
+        //------------------------------------------//
+
+        //- Wait till thread execution is complete -//
+        // k_thread_join(my_tid, K_NO_WAIT);         // Comment this line or k_thread_abort only one
+        // can work at a time
+        //------------------------------------------//
+
+        k_msleep(10000);
+    }
+}
+
+// This thread will start immediately after creation
+K_THREAD_DEFINE(thread0_id, STACKSIZE, thread0, NULL, NULL, NULL, THREAD0_PRIORITY, 0, 0);
+// This thread will start after 5s delay
+K_THREAD_DEFINE(thread1_id, STACKSIZE, thread1, NULL, NULL, NULL, THREAD1_PRIORITY, 0, 5);
+```
+

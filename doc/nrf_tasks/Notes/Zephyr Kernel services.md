@@ -1,0 +1,4 @@
+- FIFO
+	- Used in BLE UART sample for RX/TX queue
+- [Threads](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/kernel/services/threads/index.html)
+- 

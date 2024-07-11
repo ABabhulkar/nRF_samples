@@ -9,6 +9,8 @@
 - [[printk()]]
 - [[Logger module]]
 - [[Zephyr RTOS basics]]
+- [[Zephyr Kernel services]]
+- 
 
 
 ### References Videos
