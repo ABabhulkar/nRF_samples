@@ -63,4 +63,4 @@ Obsidian is a wiki software which has markdown as a backend. It supports long li
 - [nRF connect fundamentals](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/nrf-connect-sdk-structure-and-content/) ^95fe53
 	- [Github repo for examples](https://github.com/NordicDeveloperAcademy/ncs-fund/tree/main)
 - [nRF Connect SDK Intermediate](https://academy.nordicsemi.com/courses/nrf-connect-sdk-intermediate/) ^8fab80
-- 
+- https://zephyrproject.org/expert-insights-into-test-driven-development-pytest-integration-emulators-and-unit-testing/

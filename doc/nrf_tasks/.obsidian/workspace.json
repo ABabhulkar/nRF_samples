@@ -21,33 +21,12 @@
             }
           },
           {
-            "id": "20a6b9ea3ca2351c",
+            "id": "ffbb20a5184db0f1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Adding custom configurations.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9c5c657889512629",
-            "type": "leaf",
-            "state": {
-              "type": "obsidian-projects",
-              "state": {}
-            }
-          },
-          {
-            "id": "202490a0b3e5faf4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tasks/[NRF-3] Create first application.md",
+                "file": "Notes/FIFO.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -55,7 +34,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -121,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tasks/[NRF-3] Create first application.md",
+                "file": "Notes/FIFO.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tasks/[NRF-3] Create first application.md",
+                "file": "Notes/FIFO.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -161,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tasks/[NRF-3] Create first application.md"
+                "file": "Notes/FIFO.md"
               }
             }
           },
@@ -193,46 +172,45 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "202490a0b3e5faf4",
+  "active": "ffbb20a5184db0f1",
   "lastOpenFiles": [
-    "Notes/User defined threads.md",
     "Notes/Zephyr Kernel services.md",
-    "Notes/Workqueue threads.md",
+    "Notes/Message queue.md",
+    "_assets/Pasted image 20240715161157.png",
+    "Notes/FIFO.md",
+    "_assets/Pasted image 20240715155507.png",
     "Notes/_Index.md",
-    "Topics to cover.md",
-    "Notes/Semaphores.md",
-    "Untitled.canvas",
     "Notes/Zephyr RTOS basics.md",
-    "tasks/[NRF-3] Create first application.md",
-    "tasks/[NRF-8] Network core images for nRF53.md",
+    "Notes/Scheduler.md",
+    "_assets/Pasted image 20240715141457.png",
+    "Notes/Threads.md",
+    "Notes/cooperative threads.md",
+    "_assets/Pasted image 20240715125645.png",
+    "Notes/Time sequences for scheduling.canvas",
+    "_assets/Pasted image 20240715122421.png",
+    "tasks/[NRF-2] Dev environment setup.md",
+    "Notes/Boot sequence.canvas",
+    "_assets/Pasted image 20240715105551.png",
     "Notes/[NRF-8.md",
+    "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
+    "tasks/[NRF-5] 1C - 2P Communication bridge.md",
+    "tasks/[NRF-3] Create first application.md",
+    "Topics to cover.md",
     "README.md",
     "Notes/Adding custom configurations.md",
+    "Notes/Logger module.md",
+    "Notes/Workqueue threads.md",
+    "Notes/Semaphores.md",
+    "tasks/[NRF-8] Network core images for nRF53.md",
     "Notes/Devicetree.md",
     "Notes/Board recovery if not detected.md",
-    "tasks/[NRF-2] Dev environment setup.md",
     "tasks/[NRF-7] Zephyr RTOS beyond basics.md",
     "Notes/Mutexes.md",
     "_assets/Pasted image 20240709103250.png",
     "_assets/Pasted image 20240705135118.png",
     "_assets/Pasted image 20240709095211.png",
-    "tasks/[NRF-5] 1C - 2P Communication bridge.md",
-    "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
     "_assets/Pasted image 20240709130427.png",
-    "_assets/Pasted image 20240709125939.png",
-    "_assets/Pasted image 20240709113118.png",
-    "_assets/Pasted image 20240709110830.png",
-    "Notes/Time sequences for scheduling.canvas",
     "Notes/printk().md",
-    "Notes/Scheduler.md",
-    "_assets/Pasted image 20240709094211.png",
-    "Notes/cooperative threads.md",
-    "Notes/preemptible threads.md",
-    "_assets/Pasted image 20240708162724.png",
-    "Notes/Logger module.md",
-    "Notes/Elements of SDK.md",
-    "_assets/Pasted image 20240706161640.png",
-    "Notes/Build config.md",
     "_assets/clang-format.txt",
     "Notes/GPIO API.canvas",
     "Notes",

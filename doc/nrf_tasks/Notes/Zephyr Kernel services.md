@@ -1,4 +1,7 @@
-- FIFO
-	- Used in BLE UART sample for RX/TX queue
+- [[FIFO]]
+	- [[[NRF-3] Create first application]] uses this
 - [Threads](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/kernel/services/threads/index.html)
-- 
+- [Events](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/kernel/services/synchronization/events.html)
+	- Make use of it #TODO can be good IPC mechanism 
+- [[Message queue]]
+- Mailbox

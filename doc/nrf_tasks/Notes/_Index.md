@@ -1,5 +1,5 @@
 ## Multi-Image Builds
-- [User defined threads](User%20defined%20threads.md)
+- [Threads](Threads.md)
 - [Nordic boards](Build%20config.md)
 - [Devicetree](Devicetree.md)
 - [[Device Driver]]
@@ -10,7 +10,7 @@
 - [[Logger module]]
 - [[Zephyr RTOS basics]]
 - [[Zephyr Kernel services]]
-- 
+- [[Boot sequence.canvas|Boot sequence]]
 
 
 ### References Videos

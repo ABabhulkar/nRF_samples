@@ -1,8 +1,33 @@
 
-There are two ways to create a thread in Zephyr:
-- dynamically (at run-time) through [`k_thread_create()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_thread_create)
-- statically (at compile time) by using the [K_THREAD_DEFINE()](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.K_THREAD_DEFINE) macro
+A thread is the basic unit of runnable code. 
+- user-defined thread
+	- dynamically (at run-time) through [`k_thread_create()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_thread_create)
+	- statically (at compile time) by using the [K_THREAD_DEFINE()](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.K_THREAD_DEFINE) macro
+- thread created by the RTOS
+	- System thread
+	- Idle thread
+	- workqueue thread
+	- Thread created by a RTOS subsystem
 
+A thread has the following items:
+- **Thread control block**: For each thread, there will be an instance of a thread control block within the RTOS that keeps track of a thread’s information, specifically its metadata.
+- **Stack**: Each thread will have its own stack. The stack area’s size must be set to align with the specific processing requirements of the thread.
+- **Entry point function**: This is the body of the thread or, in other words runnable. It usually contains an infinite loop, as exiting the entry point will terminate the thread. The entry point function can have three optional argument values that can be passed to it on start.
+- **Thread priority**: It instructs the [[Scheduler]] how to allocate CPU time to the thread.
+- **Optional [thread options](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#thread-options)** :  By using this optional field, you can make the thread receive special treatment under specific circumstances.
+- **Optional starting delay**: By passing K_NO_WAIT which is simply a start delay of 0. Or we can specify an optional start delay.
+
+> [!Important]
+> Dynamic threads are not supported in Zephyr RTOS as of V3.4.0
+> if you use the [`k_thread_create()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_thread_create) function, you must allocate a stack using the [`K_THREAD_STACK_DEFINE()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.K_THREAD_STACK_DEFINE) macro in advance.
+
+
+> [!Note]
+> There is also the option to create a thread with the delay set to K_FOREVER, which effectively makes the thread inactive. To activate, call [`k_thread_start()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_thread_start), which will add the thread to the queue of ready threads (ready queue).
+#### Thread life cycle
+![[Pasted image 20240715122421.png]]
+
+#### Statically defined thread
 Source is [[_Index#^57fbd5]]
 > [!Info]
 > 

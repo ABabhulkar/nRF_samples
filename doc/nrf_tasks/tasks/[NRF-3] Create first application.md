@@ -2,7 +2,7 @@
 Epic: "[[[NRF-E2] BLE sample with multi threading]]"
 Created: 2024-07-03
 Due: 2024-07-15
-Status: InProgress
+Status: InReview
 Assigned to: "[[Abhishek]]"
 tags:
   - "#SmallSamples"
@@ -14,9 +14,9 @@ Git: https://github.com/ABabhulkar/nRF_samples/pull/2
 Create first application by taking nordic UART service sample as base. 
 **Scope:** Add a sensor reading gathering in a parallel thread.
 **Topics to learn:**
-- IPC communication
+- ~~IPC communication~~ ( #TODO in some other ticket)
 - ~~Life cycle of thread~~[NRF-7]
-- [[User defined threads]] creation and execution.
+- [[Threads]] creation and execution.
 
 #### Sub-Task
 - [x] Create an application with nRF53 board
@@ -24,7 +24,7 @@ Create first application by taking nordic UART service sample as base.
 	- 09-07-02024: Not a big deal just have to add one build config.
 - [x] [[README#^95fe53| nRF connect fundamentals]] course from Nordic 
 - [ ] ~~Add logs on all life cycle methods~~ [[[NRF-7] Zephyr RTOS beyond basics|[NRF-7]\]]
-- [ ] There should be 2 threads one for BLE UART handling and one for sensor data gathering
+- [x] There should be 2 threads one for BLE UART handling and one for sensor data gathering
 	- Sensor thread
 		- Create a counter which should be initialized once on thread creation.
 		- Update the counter value and sleep for 500ms
@@ -63,3 +63,12 @@ Create first application by taking nordic UART service sample as base.
 > - Do not use sysbuild for nrf52 boards #NeedsClarification
 
 - [ ] ~~Find out what images are available for network core Ex: hci_ipc and how to configure them.~~ [[[NRF-8] Network core images for nRF53|[NRF-8]\]]
+
+##### 10-07-2024 [[Abhishek]]
+Completed Task Summary
+- ble_uart_multithread example created from ble sample checked on nRF7002 board
+- Both static and dynamic [[Threads]] are created
+- [[Zephyr Kernel services]] [[FIFO]] usage is demonstrated
+Next steps #TODO 
+- Separate sensor thread into different .c/.h files
+- Fix complier warnings if there are any and document the sample with detailed learnings
