@@ -8,6 +8,7 @@
 ### nRF peripherals
 - [[Device Driver]]
 - [[GPIO API.canvas|GPIO API]]
+- [[Timers]]
 
 ### Zephyr RTOS concepts
 - [Threads](Threads.md)
@@ -20,6 +21,9 @@
 	- [[Message queue]]
 	- [[FIFO]]
 	- Mailbox
+
+### Crypto
+- [[Random number]]
 
 #### Logging
 - [[printk()]]

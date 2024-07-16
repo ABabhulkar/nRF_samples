@@ -20,7 +20,7 @@
 > 
 > **Make sure to select nRF Connect Terminal**, as shown in the screenshot below as this is the terminal where the toolchain is sourced.
 
-> [!Importent]
+> [!Info]
 > If you get an error message during flashing, similar to the screenshot below, you will need to recover your device: ![](https://academy.nordicsemi.com/wp-content/uploads/2022/01/readback_protection.png)  
 Recovering a device can be done using the command line interface by:  
 > 1. Open nRF Connect Terminal  
@@ -28,3 +28,12 @@ Recovering a device can be done using the command line interface by:
 > 3. Type `west flash --recover` and hit enter  
 > 
 > You need to do the steps above only one time. After that, you can use the Flash functionality as usual.
+
+> [!Important]
+> ```c
+> CONFIG_DEBUG_THREAD_INFO=y
+> CONFIG_DEBUG_OPTIMIZATIONS=y
+> ```
+> Add the following lines in the application configuration file (`prj.conf`) will enable debugging.
+
+

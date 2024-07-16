@@ -4,15 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "56e66308405b7634",
+        "id": "16608001b6ff9ef3",
         "type": "tabs",
         "children": [
           {
-            "id": "cb5204f350d9f1cc",
+            "id": "d9f50dec21ae0a92",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Notes/Random number.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Notes/Random number.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Notes/Random number.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Notes/Random number.md"
+              }
             }
           },
           {
@@ -149,8 +158,24 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "cb5204f350d9f1cc",
+  "active": "d9f50dec21ae0a92",
   "lastOpenFiles": [
+    "Notes/_Index.md",
+    "Notes/Random number.md",
+    "Notes/FIFO.md",
+    "Notes/Message queue.md",
+    "_assets/Pasted image 20240716105953.png",
+    "Notes/Timers.md",
+    "Notes/Build config.md",
+    "_assets/Pasted image 20240705112255.png",
+    "_assets/Pasted image 20240705112649.png",
+    "_assets/Pasted image 20240705135118.png",
+    "_assets/Pasted image 20240706160046.png",
+    "_assets/Pasted image 20240706161640.png",
+    "_assets/Pasted image 20240708162724.png",
+    "_assets/Pasted image 20240709094211.png",
+    "_assets/Pasted image 20240709095211.png",
+    "_assets/Pasted image 20240709103250.png",
     "Notes/Workqueue threads.md",
     "Notes/Time sequences for scheduling.canvas",
     "Notes/Threads Priority.md",
@@ -160,35 +185,20 @@
     "Notes/Semaphores.md",
     "Notes/Scheduler.md",
     "Notes/preemptible threads.md",
-    "Notes/_Index.md",
     "Notes/Logger module.md",
     "Notes/Elements of SDK.md",
     "Notes/cooperative threads.md",
-    "Notes/Build config.md",
     "Notes/Boot sequence.canvas",
     "Notes/Board recovery if not detected.md",
     "Notes/Mutexes.md",
     "Notes/Zephyr RTOS basics.md",
     "Notes/Device Driver.md",
     "Notes/Devicetree.md",
-    "Notes/FIFO.md",
     "Notes/GPIO API.canvas",
-    "Notes/Message queue.md",
     "Notes/printk().md",
     "Notes/Zephyr Kernel services.md",
     "tasks/[NRF-3] Create first application.md",
     "Topics to cover.md",
-    "README.md",
-    "_assets/Pasted image 20240715161157.png",
-    "_assets/Pasted image 20240715155507.png",
-    "_assets/Pasted image 20240715141457.png",
-    "_assets/Pasted image 20240715125645.png",
-    "_assets/Pasted image 20240715122421.png",
-    "_assets/Pasted image 20240715105551.png",
-    "_assets/Pasted image 20240709103250.png",
-    "_assets/Pasted image 20240705135118.png",
-    "_assets/Pasted image 20240709095211.png",
-    "_assets/Pasted image 20240709130427.png",
     "_assets/clang-format.txt",
     "Notes",
     "tasks",
