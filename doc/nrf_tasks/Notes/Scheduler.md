@@ -7,9 +7,7 @@ The [scheduler](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zeph
 Zephyr RTOS is by default a tickless RTOS. A tickless RTOS is completely event-driven, which means that instead of having periodic timer interrupts to wake up the scheduler, it is woken based on events known as rescheduling points.
 
 #### Context switch
-
 ^da7450
-
 The combined resources, including processor registers and the stack, form the thread’s context. This process of saving the context when preempting a thread and restoring it when resuming is known as context switching.
 ![[Pasted image 20240715125645.png]]
 Notice that context switching does consume a bit of time as it involves copying data. Also, keep in mind that context switching happens with interrupts as well.
@@ -22,7 +20,6 @@ A rescheduling point is an instant in time when the scheduler gets called to sel
 - When [time slicing](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/index.html#CONFIG_TIMESLICING) is enabled (covered in Exercise 2) and the thread has run continuously for the maximum time slice time allowed, the thread’s state is changed from “Running” to “Ready”.
 
 #### Threads with equal priority
-
 ##### Default behavior
 The scheduler will run the thread that was the first to have been made Ready in the ready queue.
 ##### Time Slicing
@@ -41,3 +38,12 @@ CONFIG_TIMESLICE_PRIORITY=0
 ##### Earliest deadline first
 The firmware developer must provide an estimated deadline for each thread by calling [`k_thread_deadline_set()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_thread_deadline_set). When multiple threads exist with the same priority level, the scheduler will pick the thread with the earliest deadline (shortest period).
 The Kconfig symbol to enable this option is [CONFIG_SCHED_DEADLINE](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/index.html#CONFIG_SCHED_DEADLINE).
+
+##### Scheduler locking and disabling interrupts
+Scheduler locking is a mechanism in RTOS where the scheduler is temporarily locked or disabled to prevent [[Scheduler#^da7450|context switching]] between different threads or processes.
+- For cooperative threads, it is done automatically. A cooperative thread has a scheduler-locking mechanism built into it.
+- For preemptable threads, there are two functions related to scheduler locking: [k_sched_lock()](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_sched_lock) to lock a thread, [k_sched_unlock()](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_sched_unlock) to unlock a thread. The `k_sched_lock()` function effectively elevates the current thread to a cooperative priority, even when there are no cooperative priorities configured.
+ 
+> [!Important]
+> Scheduler locking does not prevent interrupts from interrupting your critical region. To protect a critical section of code from being preempted by the scheduler **and** from being interrupted by an ISR, you can use the [irq_lock()](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/interrupts.html#c.irq_lock) and [irq_unlock()](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/interrupts.html#c.irq_unlock) functions.
+

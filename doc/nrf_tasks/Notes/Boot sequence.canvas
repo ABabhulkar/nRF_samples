@@ -1,13 +1,13 @@
 {
 	"nodes":[
-		{"id":"2cd1fca85746cf16","x":-160,"y":-440,"width":560,"height":726,"type":"file","file":"_assets/Pasted image 20240715105551.png"},
-		{"id":"982c153c1a9e7e94","x":-560,"y":-234,"width":371,"height":74,"type":"text","text":"initialization sequence within the same run level is further defined using priority levels."},
-		{"id":"90e65a1283e94965","x":-549,"y":-380,"width":360,"height":100,"type":"text","text":"This stage is a pretty standard phase in embedded devices; as an application developer, it is not of much interest."},
-		{"id":"03336aeac24b59e0","x":440,"y":-197,"width":580,"height":120,"type":"text","text":"The list of devices does not include all devices that get initialized in your application. The list only provides the minimal core devices needed by the RTOS. The devices and subsystems initialized will depend on your application configuration and your board configuration file."},
+		{"id":"2cd1fca85746cf16","type":"file","file":"_assets/Pasted image 20240715105551.png","x":-160,"y":-440,"width":560,"height":726},
+		{"id":"982c153c1a9e7e94","type":"text","text":"initialization sequence within the same run level is further defined using priority levels.","x":-560,"y":-234,"width":371,"height":74},
+		{"id":"90e65a1283e94965","type":"text","text":"This stage is a pretty standard phase in embedded devices; as an application developer, it is not of much interest.","x":-549,"y":-380,"width":360,"height":100},
+		{"id":"03336aeac24b59e0","type":"text","text":"The list of devices does not include all devices that get initialized in your application. The list only provides the minimal core devices needed by the RTOS. The devices and subsystems initialized will depend on your application configuration and your board configuration file.","x":440,"y":-197,"width":580,"height":120},
 		{"id":"f836a3d6e5e48218","type":"text","text":"System thread","x":240,"y":-40,"width":120,"height":60},
-		{"id":"b4af27e0e9d60716","x":-560,"y":-30,"width":371,"height":110,"type":"text","text":"Once the `POST_KERNEL` services are initiated, the Zephyr boot banner is printed:"},
-		{"id":"b996b383a5b0aad6","x":440,"y":-51,"width":580,"height":291,"type":"text","text":"RTOS main thread is the currently active thread\n``POST_KERNAL``\n- Many libraries, RTOS subsystems, and services get initialized if enabled. Ex. ``CONFIG_LOG``, ``CONFIG_BT``.\n\n``APLICATION``\n- Some libraries get initiated here if they are enabled\n- All application-defined static threads (using `K_THREAD_DEFINE()`) are initiated.\n- it will call your `main()` function at the end, if it exists"},
-		{"id":"a55787fff5fae21b","x":-253,"y":320,"width":746,"height":185,"type":"text","text":"> [!Note]\n> For multi-core hardware such as the nRF5340 SoC, other peripherals, such as the mailbox (mbox), will be initialized on bootup by the SDK. When Trusted Firmware-M is used, an entropy source such as the psa-rng peripheral will be initialized as well."}
+		{"id":"b4af27e0e9d60716","type":"text","text":"Once the `POST_KERNEL` services are initiated, the Zephyr boot banner is printed:","x":-560,"y":-30,"width":371,"height":110},
+		{"id":"b996b383a5b0aad6","type":"text","text":"RTOS main thread is the currently active thread\n``POST_KERNAL``\n- Many libraries, RTOS subsystems, and services get initialized if enabled. Ex. ``CONFIG_LOG``, ``CONFIG_BT``.\n\n``APLICATION``\n- Some libraries get initiated here if they are enabled\n- All application-defined static threads (using `K_THREAD_DEFINE()`) are initiated.\n- it will call your `main()` function at the end, if it exists","x":440,"y":-51,"width":580,"height":291},
+		{"id":"a55787fff5fae21b","type":"text","text":"> [!Note]\n> For multi-core hardware such as the nRF5340 SoC, other peripherals, such as the mailbox (mbox), will be initialized on bootup by the SDK. When Trusted Firmware-M is used, an entropy source such as the psa-rng peripheral will be initialized as well.","x":-253,"y":320,"width":746,"height":185}
 	],
 	"edges":[]
 }

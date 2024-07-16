@@ -4,8 +4,6 @@
 - [[#Guidelines for task management|Guidelines for task management]]
 			- [[#1. Epics|1. Epics]]
 			- [[#2. Tasks|2. Tasks]]
-- [_Index](_Index.md)
-- [[#References|References]]
 
 ### Introduction
 Obsidian is a wiki software which has markdown as a backend. It supports long list of plugins which can add different features. However in this project only following plugin is essential.
@@ -56,11 +54,5 @@ Obsidian is a wiki software which has markdown as a backend. It supports long li
 > 3. **InReview** : Once PR is created and rework is in progress
 > 4. **Done** : Once PR is merged
 
-### References
 
-- [[_Index#^275f75|Reference Videos]]
-- [nRF connect doc link](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/installation/install_ncs.html)
-- [nRF connect fundamentals](https://academy.nordicsemi.com/courses/nrf-connect-sdk-fundamentals/lessons/lesson-1-nrf-connect-sdk-introduction/topic/nrf-connect-sdk-structure-and-content/) ^95fe53
-	- [Github repo for examples](https://github.com/NordicDeveloperAcademy/ncs-fund/tree/main)
-- [nRF Connect SDK Intermediate](https://academy.nordicsemi.com/courses/nrf-connect-sdk-intermediate/) ^8fab80
-- https://zephyrproject.org/expert-insights-into-test-driven-development-pytest-integration-emulators-and-unit-testing/
+[[_Index|Notes to continue reading]]

@@ -1,13 +1,18 @@
-
-A thread is the basic unit of runnable code. 
-- user-defined thread
+- [[#Introduction|Introduction]]
+- [[#System Threads|System Threads]]
+- [[#User defined threads|User defined threads]]
+- [[#Thread synchronization|Thread synchronization]]
+- [[#Examples|Examples]]
+### Introduction
+A  [Threads](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/kernel/services/threads/index.html) is the basic unit of runnable code. 
+- [[#User defined threads]]
 	- dynamically (at run-time) through [`k_thread_create()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_thread_create)
-	- statically (at compile time) by using the [K_THREAD_DEFINE()](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.K_THREAD_DEFINE) macro
+	- [[Statically defined thread]] (at compile time) by using the [K_THREAD_DEFINE()](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.K_THREAD_DEFINE) macro
 - thread created by the RTOS
-	- System thread
+	- [[#System Threads]]
 	- Idle thread
-	- workqueue thread
-	- Thread created by a RTOS subsystem
+	- [[Workqueue threads]]
+	- Thread created by a RTOS subsystem like logger, BT
 
 A thread has the following items:
 - **Thread control block**: For each thread, there will be an instance of a thread control block within the RTOS that keeps track of a thread’s information, specifically its metadata.
@@ -21,47 +26,38 @@ A thread has the following items:
 > Dynamic threads are not supported in Zephyr RTOS as of V3.4.0
 > if you use the [`k_thread_create()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_thread_create) function, you must allocate a stack using the [`K_THREAD_STACK_DEFINE()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.K_THREAD_STACK_DEFINE) macro in advance.
 
+In nRF Connect SDK, there are two main types of threads: 
+- [[cooperative threads]] (negative priority value) : limited usage
+- [[preemptible threads]] (non-negative priority
+
+A thread can be in one of the following states at any given time.
+- **Running:** The running thread is the one that is currently being executed by the CPU. 
+- **Runnable:** A thread is marked as “Runnable” when it has no other dependencies with other threads or other system resources to proceed further in execution. The only resource this thread is waiting for is the CPU time. This is also known as *“Ready”* state.
+- **Non-runnable:** A thread that has one or more factors that prevent its execution is deemed to be unready, and cannot be selected as the current thread. The scheduler does not include these threads in the scheduling algorithm to select the next thread to run. This is also known as *“Unready”* state.
 
 > [!Note]
 > There is also the option to create a thread with the delay set to K_FOREVER, which effectively makes the thread inactive. To activate, call [`k_thread_start()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_thread_start), which will add the thread to the queue of ready threads (ready queue).
-#### Thread life cycle
-![[Pasted image 20240715122421.png]]
-
-#### Statically defined thread
-Source is [[_Index#^57fbd5]]
+### System Threads
+A system thread is a type of thread that is spawned automatically by Zephyr RTOS during initialization.
+1. **Main Thread:** 
+   Executes the necessary RTOS initializations and calls the application’s `main()` function, if it exists. If no user-defined main() is supplied, the main thread will exit normally, though the system would be fully functional.
+   This is entry point in the system.
+2. **Idle Thread:** It runs when there is no other work to do, either running an empty loop or, if supported, will activate power management to save power **(This is the case for Nordic devices).**
 > [!Info]
 > 
-> K_THREAD_DEFINE(thread_id, stack_size, thread_functions, arg1, arg2, arg3, priority, options, delay)
+> Having the `main()` function is optional in Zephyr RTOS-based applications. This is because the main thread automatically spawned by the RTOS will do the necessary RTOS initialization, including scheduler/kernel setup, and core drivers setup.
+> 
+> After that, it will try to call the user-defined `main()`, if one exists. If no `main()` function exists, the main thread will exit. The system will still be functional and other threads can be scheduled normally.
 
-- **thread_id:** name of the thread
-- **stack_size:** size of the stack
-- **thread_function:** function to be executed by the thread
-- **arg1, arg2, arg3**: arguments to be passed to the thread function
-- **priority:** priority of the thread
-- **options:** [thread options](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#thread-options) can be found here
-- **delay:** delay before the thread starts
+### User defined threads
+In addition to system threads, a user can define their own threads to assign tasks to. For example, a user can create a thread to delegate reading sensor data, another thread to process data, and so on. Threads are assigned a priority, which instructs the scheduler how to allocate CPU time to the thread. 
+nRF connect SDK provides macro to create [[Threads]].
 
-> [!Important]
-> Stack sizes should always be a power of two (512, 1024, 2048, etc.).
-> Stack size should be chosen more carefully, to avoid unnecessarily using memory. We do not need that here for a simple application.
-
-**Thread switching**
-**`k_yield()`** will change the thread state from “Running” to “Runnable”, which means that at the next rescheduling point, the thread that just yielded is still a candidate in the [[Scheduler]] algorithm for making a thread active (“Running”). The overall result is that after the thread yields, there will be at least one item in the runnable thread queue for the scheduler to choose from at the next rescheduling point.
->[!Note]
-> To give lower priority threads a chance to run, the current thread needs to be put to “Non-runnable”. This can be done using `k_sleep()`, which we will see further on in this exercise.
-
-**`k_sleep()`** will change the thread state from “Running” to “Non-runnable” until the timeout has passed, and then change it to “Runnable”. This means that the thread will not be candidate in the scheduler’s algorithm until the timeout amount of time has passed. Hence thread sleeping is better choice for **adding delays** and not for yielding.
-
-[[Time sequences for scheduling.canvas|Time sequences for scheduling]] shows comparative time sequences.
-
-> [!More on this]
-> [`k_sleep()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_sleep) expect a parameter of type `k_timeout_t` which can be constructed using macros like [`K_MSEC()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/timing/clocks.html#c.K_MSEC). For simplicity, `k_sleep()` has simpler-to-use derivatives like [k_msleep()](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_msleep) and [`k_usleep()`](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/kernel/services/threads/index.html#c.k_usleep) that you can pass the time unit directly. The latter will be used extensively.
-
-##### Thread synchronization
+### Thread synchronization
 Two mechanisms you can utilize to achieve thread synchronization are [[Semaphores]] or [[Mutexes]]. They have some differing properties, but in essence they are both variables that are changed before and after the critical section by a thread to make sure that no other threads can execute the segment before that thread has completed it.
 The main differences are that semaphores have a maximum value that is set at initialization, while mutexes have ownership property, i.e only the thread incrementing its value can decrement it, until zero when it is relinquished.
 
-##### Examples
+### Examples
 1. Static and dynamic thread creation
 ```c
 #include <stdint.h>
