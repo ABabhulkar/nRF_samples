@@ -72,7 +72,18 @@
         },
         {
           "config": {
-            "groupByField": "Status"
+            "groupByField": "Status",
+            "columns": {
+              "Backlog": {
+                "records": [
+                  "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
+                  "tasks/[NRF-5] 1C - 2P Communication bridge.md",
+                  "tasks/[NRF-6] Simple application with OTA.md",
+                  "tasks/[NRF-7] Zephyr RTOS beyond basics.md",
+                  "tasks/[NRF-8] Network core images for nRF53.md"
+                ]
+              }
+            }
           },
           "filter": {
             "conjunction": "and",

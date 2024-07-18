@@ -2,7 +2,7 @@
 Epic: "[[NRF-E1]]"
 Created: 2024-07-01
 Due: 2024-07-03
-Status: InReview
+Status: Done
 Assigned to: "[[Abhishek]]"
 tags:
   - "#setup"

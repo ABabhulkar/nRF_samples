@@ -4,6 +4,7 @@
 - [Build Config](Build%20config.md)
 - [[Adding custom configurations]]
 - [[Boot sequence.canvas|Boot sequence]]
+- [[Debugging]]
 
 ### nRF peripherals
 - [[Device Driver]]

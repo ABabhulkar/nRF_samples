@@ -1,9 +1,9 @@
 ---
 Epic: "[[[NRF-E2] BLE sample with multi threading]]"
 Created: 2024-07-03
-Due: 
+Due:
 Status: Backlog
-Assigned to: 
+Assigned to:
 tags:
   - "#SmallSamples"
   - "#BLE_UART"

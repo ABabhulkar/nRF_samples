@@ -1,14 +1,19 @@
 #### Zephyr OS topics
-- Build system (West)
-- Memory management
-- Power modes
-- Scheduling algorithms
-- testing frameworks
+- Build system [West](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/develop/west/index.html) ✅ (link in build page)
+- Memory management ❌ (Nothing specific)
+- Debugging tools ✅
+- Power modes (Not that into focus for now)
+	- https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/test_and_optimize/optimizing/power_general.html
+	- https://docs.zephyrproject.org/latest/services/pm/index.html
+- Scheduling algorithms ✅
+- testing frameworks [[[NRF-9] Debugging and testing of applications|[NRF-9]\]]
 - Inter thread communication (Queues, FIFO, mailboxes)
 - Zephyr OS networking stack
 	- Using Wireshark
 - file system support
 - NV memory
+- Events
+- Multi-domain build ✅(link in build page)
 
 #### Things to do with nRF53 board
 - [ ] Nordic UART service switch (Sample 1C-1P): setup 1C-2P [[[NRF-3] Create first application|NRF3]], [[[NRF-4] Update UART central to connect with 2 nodes|NRF-4]], [[[NRF-5] 1C - 2P Communication bridge|NRF-5]]
@@ -20,7 +25,7 @@
 - [ ] Cryptography: [[[NRF-5] 1C - 2P Communication bridge|NRF-5]], **TBD**
 - [ ] MCUBoot: **TBD**
 - [ ] OTA: [[[NRF-6] Simple application with OTA]], **TBD**
-- [ ] Testing framework: **TBD**
+- [ ] Testing framework: [[[NRF-9] Debugging and testing of applications|[NRF-9]\]]
 
 #### PoC Ideas
 1. Connectivity Bridge (Modbus to BLE)

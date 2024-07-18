@@ -57,6 +57,10 @@ nRF connect SDK provides macro to create [[Threads]].
 Two mechanisms you can utilize to achieve thread synchronization are [[Semaphores]] or [[Mutexes]]. They have some differing properties, but in essence they are both variables that are changed before and after the critical section by a thread to make sure that no other threads can execute the segment before that thread has completed it.
 The main differences are that semaphores have a maximum value that is set at initialization, while mutexes have ownership property, i.e only the thread incrementing its value can decrement it, until zero when it is relinquished.
 
+>[!Example]
+> - Use cooperative threads for device drivers and other performance-critical work.
+> - Use cooperative threads to implement mutually exclusion without the need for a kernel object, such as a mutex.
+> - Use preemptive threads to give priority to time-sensitive processing over less time-sensitive processing.
 ### Examples
 1. Static and dynamic thread creation
 ```c

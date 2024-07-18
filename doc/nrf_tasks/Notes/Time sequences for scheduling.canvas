@@ -5,7 +5,11 @@
 		{"id":"0c9ad257b6db1cb8","type":"file","file":"_assets/Pasted image 20240709095211.png","x":-180,"y":-163,"width":598,"height":410},
 		{"id":"201ec6efe0a85b57","type":"file","file":"_assets/Pasted image 20240709103250.png","x":480,"y":-163,"width":584,"height":410},
 		{"id":"dca04ea31a1f7501","type":"text","text":"Time slicing ","x":647,"y":-260,"width":250,"height":60},
-		{"id":"de454ee35b714e52","type":"text","text":"Time sequence for threads with k_msleep","x":-6,"y":-260,"width":250,"height":60}
+		{"id":"de454ee35b714e52","type":"text","text":"Time sequence for threads with k_msleep","x":-6,"y":-260,"width":250,"height":60},
+		{"id":"f4ae7228d524e514","x":-360,"y":-500,"width":320,"height":60,"type":"text","text":"### Cooperative Time Slicing"}
 	],
-	"edges":[]
+	"edges":[
+		{"id":"57493af4f2895595","fromNode":"f4ae7228d524e514","fromSide":"bottom","toNode":"a1e914ef8e0f87a5","toSide":"top"},
+		{"id":"03af3cf46267f7bb","fromNode":"f4ae7228d524e514","fromSide":"bottom","toNode":"de454ee35b714e52","toSide":"top"}
+	]
 }

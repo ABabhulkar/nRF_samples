@@ -37,3 +37,7 @@ Recovering a device can be done using the command line interface by:
 > Add the following lines in the application configuration file (`prj.conf`) will enable debugging.
 
 
+#### Referances
+- Build system [West](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/develop/west/index.html)
+	- This is important but looking at it doesn't look that important until we reach to advance level in project.
+- [sysbuild](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/build/sysbuild/index.html#sysbuild) this is used for multi-image builds

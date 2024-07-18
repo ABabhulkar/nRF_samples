@@ -2,7 +2,7 @@
 Epic: "[[[NRF-E2] BLE sample with multi threading]]"
 Created: 2024-07-03
 Due: 2024-07-15
-Status: InReview
+Status: Done
 Assigned to: "[[Abhishek]]"
 tags:
   - "#SmallSamples"

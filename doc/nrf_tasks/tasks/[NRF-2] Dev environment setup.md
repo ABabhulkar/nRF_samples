@@ -1,8 +1,8 @@
 ---
 Epic: "[[NRF-E1]]"
 Created: 2024-07-02
-Due: 
-Status: InProgress
+Due:
+Status: Done
 Assigned to: "[[Abhishek]]"
 tags:
   - setup

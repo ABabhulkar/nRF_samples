@@ -13,14 +13,41 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Random number.md",
+                "file": "Topics to cover.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b218b556ceb54508",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tasks/[NRF-9] Debugging and testing of applications.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ed6f54e10abadd86",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tasks/[NRF-9] Debugging and testing of applications.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -86,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Random number.md",
+                "file": "tasks/[NRF-9] Debugging and testing of applications.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Random number.md",
+                "file": "tasks/[NRF-9] Debugging and testing of applications.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +153,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Random number.md"
+                "file": "tasks/[NRF-9] Debugging and testing of applications.md"
               }
             }
           },
@@ -158,15 +185,28 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "d9f50dec21ae0a92",
+  "active": "b218b556ceb54508",
   "lastOpenFiles": [
+    "Topics to cover.md",
+    "README.md",
+    "tasks/[NRF-9] Debugging and testing of applications.md",
+    "tasks/[NRF-7] Zephyr RTOS beyond basics.md",
+    "Notes/[[NRF-3] Create first application.md",
+    "tasks/[NRF-3] Create first application.md",
     "Notes/_Index.md",
+    "Notes/Threads.md",
+    "Notes/Scheduler.md",
+    "Notes/Time sequences for scheduling.canvas",
+    "Notes/Statically defined thread.md",
+    "Notes/Build config.md",
+    "Notes/Debugging.md",
+    "_assets/Pasted image 20240717101226.png",
+    "_assets/Pasted image 20240717100017.png",
     "Notes/Random number.md",
     "Notes/FIFO.md",
     "Notes/Message queue.md",
     "_assets/Pasted image 20240716105953.png",
     "Notes/Timers.md",
-    "Notes/Build config.md",
     "_assets/Pasted image 20240705112255.png",
     "_assets/Pasted image 20240705112649.png",
     "_assets/Pasted image 20240705135118.png",
@@ -174,16 +214,10 @@
     "_assets/Pasted image 20240706161640.png",
     "_assets/Pasted image 20240708162724.png",
     "_assets/Pasted image 20240709094211.png",
-    "_assets/Pasted image 20240709095211.png",
-    "_assets/Pasted image 20240709103250.png",
     "Notes/Workqueue threads.md",
-    "Notes/Time sequences for scheduling.canvas",
     "Notes/Threads Priority.md",
-    "Notes/Threads.md",
     "Notes/Thread life cycle.md",
-    "Notes/Statically defined thread.md",
     "Notes/Semaphores.md",
-    "Notes/Scheduler.md",
     "Notes/preemptible threads.md",
     "Notes/Logger module.md",
     "Notes/Elements of SDK.md",
@@ -191,14 +225,7 @@
     "Notes/Boot sequence.canvas",
     "Notes/Board recovery if not detected.md",
     "Notes/Mutexes.md",
-    "Notes/Zephyr RTOS basics.md",
-    "Notes/Device Driver.md",
-    "Notes/Devicetree.md",
     "Notes/GPIO API.canvas",
-    "Notes/printk().md",
-    "Notes/Zephyr Kernel services.md",
-    "tasks/[NRF-3] Create first application.md",
-    "Topics to cover.md",
     "_assets/clang-format.txt",
     "Notes",
     "tasks",
