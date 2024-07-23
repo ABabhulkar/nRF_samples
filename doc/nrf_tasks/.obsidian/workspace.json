@@ -19,35 +19,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "b218b556ceb54508",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tasks/[NRF-9] Debugging and testing of applications.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ed6f54e10abadd86",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tasks/[NRF-9] Debugging and testing of applications.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -113,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "tasks/[NRF-9] Debugging and testing of applications.md",
+                "file": "Topics to cover.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "tasks/[NRF-9] Debugging and testing of applications.md",
+                "file": "Topics to cover.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -153,12 +126,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tasks/[NRF-9] Debugging and testing of applications.md"
+                "file": "Topics to cover.md"
               }
             }
           },
           {
-            "id": "d1cc6c96f1cc8f95",
+            "id": "e8977b60e9bfaa67",
             "type": "leaf",
             "state": {
               "type": "mermaid-toolbar-view",
@@ -166,7 +139,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -185,26 +158,34 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "b218b556ceb54508",
+  "active": "d9f50dec21ae0a92",
   "lastOpenFiles": [
+    "Notes/sysbuild.md",
     "Topics to cover.md",
-    "README.md",
-    "tasks/[NRF-9] Debugging and testing of applications.md",
+    "Notes/Mailboxes.md",
+    "Notes/_Index.md",
+    "Notes/Build config.md",
+    "Notes/Elements of SDK.md",
+    "Notes/Debugging.md",
+    "Notes/Boot sequence.canvas",
+    "Notes/Adding custom configurations.md",
+    "Notes/Implementation of mailbox.canvas",
+    "Notes/Testing with ZTest.md",
+    "Notes/Threads.md",
+    "Notes/Statically defined thread.md",
+    "Notes/Untitled.md",
+    "Notes/FIFO.md",
+    "Notes/Random number.md",
+    "Notes/Message queue.md",
     "tasks/[NRF-7] Zephyr RTOS beyond basics.md",
+    "tasks/[NRF-9] Debugging and testing of applications.md",
+    "README.md",
     "Notes/[[NRF-3] Create first application.md",
     "tasks/[NRF-3] Create first application.md",
-    "Notes/_Index.md",
-    "Notes/Threads.md",
     "Notes/Scheduler.md",
     "Notes/Time sequences for scheduling.canvas",
-    "Notes/Statically defined thread.md",
-    "Notes/Build config.md",
-    "Notes/Debugging.md",
     "_assets/Pasted image 20240717101226.png",
     "_assets/Pasted image 20240717100017.png",
-    "Notes/Random number.md",
-    "Notes/FIFO.md",
-    "Notes/Message queue.md",
     "_assets/Pasted image 20240716105953.png",
     "Notes/Timers.md",
     "_assets/Pasted image 20240705112255.png",
@@ -218,13 +199,6 @@
     "Notes/Threads Priority.md",
     "Notes/Thread life cycle.md",
     "Notes/Semaphores.md",
-    "Notes/preemptible threads.md",
-    "Notes/Logger module.md",
-    "Notes/Elements of SDK.md",
-    "Notes/cooperative threads.md",
-    "Notes/Boot sequence.canvas",
-    "Notes/Board recovery if not detected.md",
-    "Notes/Mutexes.md",
     "Notes/GPIO API.canvas",
     "_assets/clang-format.txt",
     "Notes",

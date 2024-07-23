@@ -1,0 +1,33 @@
+{
+	"nodes":[
+		{"id":"d379f3f8be55bcf9","type":"text","text":"##### STEP 1: Defining a mailbox","x":-300,"y":-367,"width":300,"height":60,"color":"4"},
+		{"id":"13ad3b566800c799","type":"text","text":"#### At runtime\n[`k_mbox`](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/kernel/services/data_passing/mailboxes.html#c.k_mbox \"k_mbox\"), [`k_mbox_init()`](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/kernel/services/data_passing/mailboxes.html#c.k_mbox_init \"k_mbox_init\")\n```c\nstruct k_mbox my_mailbox;\nk_mbox_init(&my_mailbox);\n```","x":-301,"y":-259,"width":301,"height":197},
+		{"id":"724f5bd89f60f773","type":"text","text":"#### At compile time\n[`K_MBOX_DEFINE`](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/kernel/services/data_passing/mailboxes.html#c.K_MBOX_DEFINE \"K_MBOX_DEFINE\")\n```c\nK_MBOX_DEFINE(my_mailbox);\n```","x":-660,"y":-425,"width":320,"height":176},
+		{"id":"c3fc89d26d342666","type":"text","text":"##### STEP 2:  Message Descriptors","x":100,"y":-367,"width":320,"height":60,"color":"4"},
+		{"id":"2829c950d0bdfea3","type":"text","text":"[`k_mbox_msg`](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/kernel/services/data_passing/mailboxes.html#c.k_mbox_msg \"k_mbox_msg\") \n```c\nstruct k_mbox_msg send_msg;\n//prepare to send empty message\nsend_msg.info = random_value;\nsend_msg.size = 0;\nsend_msg.tx_data = NULL;\nsend_msg.tx_target_thread = K_ANY;\n```","x":70,"y":-259,"width":380,"height":240},
+		{"id":"80fa254a65028b8d","type":"text","text":"##### Sync transmission\n```c\nk_mbox_put(&my_mailbox, &send_msg, K_FOREVER);\n```\n","x":520,"y":-259,"width":280,"height":159},
+		{"id":"16cedd1096507e8d","type":"text","text":"##### Async transmission\n```c\nk_mbox_async_put(&my_mailbox, &send_msg, NULL);\n```\n","x":520,"y":-560,"width":280,"height":160},
+		{"id":"03256577dc72c1d0","type":"text","text":"##### STEP 3:  Sending Message","x":520,"y":-367,"width":280,"height":60,"color":"4"},
+		{"id":"2a9c457e7ce93ed1","type":"text","text":"##### STEP 4:  Receiving Message","x":900,"y":-367,"width":300,"height":60,"color":"4"},
+		{"id":"4efbe1cff696c939","type":"text","text":"#### Differed data  Retrieving\n```c\nk_mbox_get(&my_mailbox, &recv_msg, NULL, K_FOREVER);\n```","x":900,"y":-560,"width":300,"height":160},
+		{"id":"4660b83821861fd1","type":"text","text":"#### Immediate data  Retrieving\n```c\nk_mbox_get(&my_mailbox, &recv_msg, buffer, K_FOREVER);\n```","x":890,"y":-259,"width":320,"height":159},
+		{"id":"3b75469724850778","type":"text","text":"Call [`k_mbox_data_get()`](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/kernel/services/data_passing/mailboxes.html#c.k_mbox_data_get \"k_mbox_data_get\") and supply a message buffer large enough to hold the data if data is of interest ","x":1470,"y":-540,"width":300,"height":120},
+		{"id":"67227a6ce93cfb83","type":"text","text":"Call [`k_mbox_data_get()`](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/kernel/services/data_passing/mailboxes.html#c.k_mbox_data_get \"k_mbox_data_get\") and specify a message buffer of `NULL` if does _not_ want to retrieve the data","x":1470,"y":-400,"width":300,"height":120},
+		{"id":"b9e422ef80d01b9a","type":"text","text":"No action required as msg is already deleted by mailbox","x":1470,"y":-660,"width":280,"height":60}
+	],
+	"edges":[
+		{"id":"9c2664e62a903dce","fromNode":"d379f3f8be55bcf9","fromSide":"bottom","toNode":"13ad3b566800c799","toSide":"top"},
+		{"id":"d6e75941e0ac3ea9","fromNode":"d379f3f8be55bcf9","fromSide":"right","toNode":"c3fc89d26d342666","toSide":"left"},
+		{"id":"5c974a568dd64016","fromNode":"d379f3f8be55bcf9","fromSide":"left","toNode":"724f5bd89f60f773","toSide":"right"},
+		{"id":"6cb7c063ce625514","fromNode":"c3fc89d26d342666","fromSide":"bottom","toNode":"2829c950d0bdfea3","toSide":"top"},
+		{"id":"9e98d6a40e21bc17","fromNode":"c3fc89d26d342666","fromSide":"right","toNode":"03256577dc72c1d0","toSide":"left"},
+		{"id":"cfd8777d8e453119","fromNode":"03256577dc72c1d0","fromSide":"bottom","toNode":"80fa254a65028b8d","toSide":"top"},
+		{"id":"1d560e6ec1fd7a00","fromNode":"03256577dc72c1d0","fromSide":"top","toNode":"16cedd1096507e8d","toSide":"bottom"},
+		{"id":"d210ed2395849570","fromNode":"03256577dc72c1d0","fromSide":"right","toNode":"2a9c457e7ce93ed1","toSide":"left"},
+		{"id":"ebe82b23772bee48","fromNode":"2a9c457e7ce93ed1","fromSide":"bottom","toNode":"4660b83821861fd1","toSide":"top"},
+		{"id":"10cd26e58d45f4ca","fromNode":"2a9c457e7ce93ed1","fromSide":"top","toNode":"4efbe1cff696c939","toSide":"bottom"},
+		{"id":"4d84276c805b8b8e","fromNode":"4efbe1cff696c939","fromSide":"right","toNode":"b9e422ef80d01b9a","toSide":"left","label":"recv_msg.size == 0"},
+		{"id":"fa8ae7d7e29d35ec","fromNode":"4efbe1cff696c939","fromSide":"right","toNode":"3b75469724850778","toSide":"left","label":"recv_msg.size != 0"},
+		{"id":"b8fa6095b3d7ff82","fromNode":"4efbe1cff696c939","fromSide":"right","toNode":"67227a6ce93cfb83","toSide":"left"}
+	]
+}

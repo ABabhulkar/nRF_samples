@@ -2,7 +2,7 @@
 Epic: "[[[NRF-E2] BLE sample with multi threading]]"
 Created: 2024-07-17
 Due: 
-Status: InProgress
+Status: OnHold
 Assigned to: "[[Abhishek]]"
 tags:
   - setup
@@ -21,3 +21,16 @@ Get basic understanding of the testing framework in nRF connect sdk and get hand
 	- [[[NRF-3] Create first application]]
 
 ---
+#### 18-07-2024
+- [[Testing with ZTest]]
+	- Working with following command
+```powershell
+python ..\..\ncs\v2.6.0\zephyr\scripts\twister -W --device-testing --device-serial COM9 --west-runner=nrfjprog --west-flash="--erase,--softreset" -p nrf52840dk_nrf52840 -T .\blinkyLED\tests\
+```
+
+**TODO**
+- It looks like native_sim or native_posix doesn't work on windows so it makes sense to do setup in WSL for this.
+- Check how to write a code so that it will be lib and then it can be unit tested.
+
+#### 19-07-2024
+- This ticket is on hold for now due to lack of proper documentation

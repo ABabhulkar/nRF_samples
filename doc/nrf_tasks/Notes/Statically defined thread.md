@@ -2,9 +2,10 @@
 Source is [[_Index#^57fbd5]]
 > [!Info]
 > 
-> K_THREAD_DEFINE(thread_id, stack_size, thread_functions, arg1, arg2, arg3, priority, options, delay)
-
-- **thread_id:** name of the thread
+> K_THREAD_DEFINE(name, stack_size, thread_functions, arg1, arg2, arg3, priority, options, delay)
+>
+> using ``extern const k_tid_t < name >``;  k_tid_t for a thread can be accessed. 
+- **name:** name of the thread
 - **stack_size:** size of the stack
 - **thread_function:** function to be executed by the thread
 - **arg1, arg2, arg3**: arguments to be passed to the thread function
