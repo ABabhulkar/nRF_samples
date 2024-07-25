@@ -48,3 +48,7 @@ sequenceDiagram
 - Depends on: 
 	- [[[NRF-3] Create first application]]
 	- [[[NRF-4] Update UART central to connect with 2 nodes]]
+
+---
+#### 25-07-2024
+- Example found in [[[NRF-4] Update UART central to connect with 2 nodes|[NRF-4] ]] nearly completes the central part of this example.

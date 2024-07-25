@@ -9,7 +9,7 @@
 - Scheduling algorithms ✅
 - Testing frameworks [[[NRF-9] Debugging and testing of applications|[NRF-9]\]]
 - Inter thread communication ( [[FIFO]], [[Message queue]], [[Mailboxes]])✅
-- Zephyr OS networking stack
+- Zephyr OS networking stack [[[NRF-10] Complete academy for BLE and WiFi]]
 	- Using Wireshark
 - file system support
 - NV memory

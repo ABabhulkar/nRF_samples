@@ -19,6 +19,14 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "5c8831f92de98d62",
+            "type": "leaf",
+            "state": {
+              "type": "obsidian-projects",
+              "state": {}
+            }
           }
         ]
       }
@@ -160,8 +168,11 @@
   },
   "active": "d9f50dec21ae0a92",
   "lastOpenFiles": [
-    "Notes/sysbuild.md",
+    "tasks/[NRF-10] Complete academy for BLE and WiFi.md",
+    "tasks/[NRF-5] 1C - 2P Communication bridge.md",
+    "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
     "Topics to cover.md",
+    "Notes/sysbuild.md",
     "Notes/Mailboxes.md",
     "Notes/_Index.md",
     "Notes/Build config.md",
@@ -196,9 +207,6 @@
     "_assets/Pasted image 20240708162724.png",
     "_assets/Pasted image 20240709094211.png",
     "Notes/Workqueue threads.md",
-    "Notes/Threads Priority.md",
-    "Notes/Thread life cycle.md",
-    "Notes/Semaphores.md",
     "Notes/GPIO API.canvas",
     "_assets/clang-format.txt",
     "Notes",
