@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Topics to cover.md",
+                "file": "Notes/Using sniffer.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -21,14 +21,20 @@
             }
           },
           {
-            "id": "5c8831f92de98d62",
+            "id": "b1da730648d72022",
             "type": "leaf",
             "state": {
-              "type": "obsidian-projects",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Topics to cover.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -166,12 +172,15 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "d9f50dec21ae0a92",
+  "active": "b1da730648d72022",
   "lastOpenFiles": [
-    "tasks/[NRF-10] Complete academy for BLE and WiFi.md",
     "tasks/[NRF-5] 1C - 2P Communication bridge.md",
     "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
+    "Notes/Using sniffer.md",
+    "_assets/Pasted image 20240729152055.png",
+    "_assets/Pasted image 20240729110926.png",
     "Topics to cover.md",
+    "tasks/[NRF-10] Complete academy for BLE and WiFi.md",
     "Notes/sysbuild.md",
     "Notes/Mailboxes.md",
     "Notes/_Index.md",
@@ -198,15 +207,11 @@
     "_assets/Pasted image 20240717101226.png",
     "_assets/Pasted image 20240717100017.png",
     "_assets/Pasted image 20240716105953.png",
-    "Notes/Timers.md",
     "_assets/Pasted image 20240705112255.png",
     "_assets/Pasted image 20240705112649.png",
     "_assets/Pasted image 20240705135118.png",
     "_assets/Pasted image 20240706160046.png",
     "_assets/Pasted image 20240706161640.png",
-    "_assets/Pasted image 20240708162724.png",
-    "_assets/Pasted image 20240709094211.png",
-    "Notes/Workqueue threads.md",
     "Notes/GPIO API.canvas",
     "_assets/clang-format.txt",
     "Notes",
