@@ -2,7 +2,9 @@
  *  @brief Nordic UART Bridge Service (NUS) sample with dynamic thread for sensor
  */
 
-#include "zephyr/kernel/thread.h"
+#include "client.h"
+#include "common.h"
+#include "server.h"
 
 #include <bluetooth/services/nus.h>
 #include <dk_buttons_and_leds.h>
@@ -18,55 +20,27 @@
 #include <zephyr/bluetooth/uuid.h>
 #include <zephyr/device.h>
 #include <zephyr/devicetree.h>
-#include <zephyr/kernel.h>
-#include <zephyr/logging/log.h>
 #include <zephyr/random/random.h>
 #include <zephyr/settings/settings.h>
 #include <zephyr/types.h>
 
-
-#define LOG_MODULE_NAME ble_node
-LOG_MODULE_REGISTER(LOG_MODULE_NAME);
-
 #define STACKSIZE CONFIG_BT_NUS_THREAD_STACK_SIZE
 #define PRIORITY_BLE_TRANSMIT 7
-#define PRIORITY_SERVER 8
-#define PRIORITY_CLIENT 8
 
 #define DEVICE_NAME CONFIG_BT_DEVICE_NAME
 #define DEVICE_NAME_LEN (sizeof(DEVICE_NAME) - 1)
 
 #define RUN_STATUS_LED DK_LED1
 #define CON_STATUS_LED DK_LED2
-#define SW0_NODE DK_BTN1_MSK
 
 #define RUN_LED_BLINK_INTERVAL 1000
-#define RESPONSE_TIMEOUT K_MSEC(5000)
 
-#define START_COMMAND "start"
-#define ACK_OK "ok"
-#define ACK_N_OK "n_ok"
-
-enum state_e { SERVER, CLIENT, IDLE };
+LOG_MODULE_REGISTER(LOG_MODULE_NAME);
 
 static K_SEM_DEFINE(ble_init_ok, 0, 1);
-static K_SEM_DEFINE(button_state_pressed, 0, 1);
-static K_SEM_DEFINE(start_command, 0, 1);
 
 static struct bt_conn* current_conn;
 static struct bt_conn* auth_conn;
-
-struct uart_data_t {
-    void* fifo_reserved;
-    uint8_t data[CONFIG_BT_NUS_UART_BUFFER_SIZE];
-    uint16_t len;
-};
-
-// static K_FIFO_DEFINE(fifo_uart_tx_data);
-static K_FIFO_DEFINE(fifo_tx_data);
-static K_FIFO_DEFINE(fifo_server_response);
-static K_FIFO_DEFINE(fifo_client_response);
-
 static enum state_e state = IDLE;
 
 static const struct bt_data ad[] = {
@@ -187,14 +161,6 @@ void error(void)
     }
 }
 
-void button_pressed(uint32_t button_state, uint32_t has_changed)
-{
-    if ((button_state == 1) && (state == IDLE)) {
-        LOG_ERR("Button 1");
-        k_sem_give(&button_state_pressed);
-    }
-}
-
 static void configure_gpio(void)
 {
     int err;
@@ -208,6 +174,21 @@ static void configure_gpio(void)
     if (err) {
         LOG_ERR("Cannot init LEDs (err: %d)", err);
     }
+}
+
+void reset_state()
+{
+    state = IDLE;
+}
+
+void request_state(enum state_e s)
+{
+    state = s;
+}
+
+enum state_e get_state()
+{
+    return state;
 }
 
 int main(void)
@@ -248,8 +229,6 @@ int main(void)
     }
 }
 
-// TODO: Move code of server side to one c file and client side to other
-
 // Runnable for BLE thread which will take care of ble transmission.
 void ble_write_thread(void)
 {
@@ -268,130 +247,5 @@ void ble_write_thread(void)
     }
 }
 
-void reset_state()
-{
-    state = IDLE;
-}
-
-void button_handler(void)
-{
-    while (1) {
-        // wait for button press
-        k_sem_take(&button_state_pressed, K_FOREVER);
-        state = SERVER;
-
-        // Allocate memory for the UART data structure
-        struct uart_data_t* request = k_malloc(sizeof(*request));
-        if (request) {
-            // Convert sensor reading to string and store in buf->data
-            memcpy(request->data, START_COMMAND, sizeof(START_COMMAND));
-            request->len = sizeof(START_COMMAND);
-
-            // Send to BLE via FIFO
-            k_fifo_put(&fifo_tx_data, request);
-        }
-        else {
-            LOG_ERR("Failed to allocate memory for buf");
-            reset_state();
-            continue;
-        }
-
-        // wait for response with timeout
-        struct uart_data_t* response = k_fifo_get(&fifo_server_response, RESPONSE_TIMEOUT); // temp
-        if (response) {
-            LOG_HEXDUMP_INF(response->data, response->len, "random Numbers");
-            // TODO: add crypto logic here
-        }
-        else {
-            LOG_ERR("Timeout happened");
-            reset_state();
-            continue;
-        }
-
-        // Wait for ACK with timeout
-        response = k_fifo_get(&fifo_server_response, RESPONSE_TIMEOUT); // temp
-        if (response) {
-            LOG_INF("Response %c", response->data[0]);
-        }
-
-        reset_state();
-        //  Sleep for 500 ms
-        k_msleep(500);
-    }
-}
-
-bool validate(struct uart_data_t* data)
-{
-    // TODO: validate the date and generate ack
-    return true;
-}
-
-// Runnable for sensor thread which take care of sensor reading
-void data_generator(void* arg0, void* arg1, void* agr2)
-{
-    char sensor_reading[5];
-    bool is_valid = false;
-
-    while (1) {
-        k_sem_take(&start_command, K_FOREVER);
-        state = CLIENT;
-
-        sys_rand_get(sensor_reading, 5);
-        LOG_HEXDUMP_INF(sensor_reading, sizeof(sensor_reading), "Sensor_reading :");
-
-        //  Allocate memory for the UART data structure
-        struct uart_data_t* buf = k_malloc(sizeof(*buf));
-        if (buf) {
-            // store sensor readings into buffer
-            memcpy(buf->data, sensor_reading, sizeof(sensor_reading));
-            buf->len = sizeof(sensor_reading);
-
-            // Send to BLE via FIFO
-            k_fifo_put(&fifo_tx_data, buf);
-        }
-        else {
-            LOG_ERR("Failed to allocate memory for buf");
-            reset_state();
-            continue;
-        }
-
-        // wait for response with timeout
-        struct uart_data_t* response = k_fifo_get(&fifo_client_response, RESPONSE_TIMEOUT); // temp
-        if (response) {
-            is_valid = validate(response);
-        }
-        else {
-            LOG_ERR("Timeout happened");
-            reset_state();
-            continue;
-        }
-
-        //  Generate Ack for data received data
-        struct uart_data_t* ack = k_malloc(sizeof(*ack));
-        if (buf) {
-            if (is_valid) {
-                memcpy(ack->data, ACK_OK, sizeof(ACK_OK));
-                ack->len = sizeof(ACK_OK);
-            }
-            else {
-                memcpy(ack->data, ACK_N_OK, sizeof(ACK_N_OK));
-                ack->len = sizeof(ACK_N_OK);
-            }
-
-            // Send to BLE via FIFO
-            k_fifo_put(&fifo_tx_data, ack);
-        }
-        else {
-            LOG_ERR("Failed to allocate memory for buf");
-        }
-
-        reset_state();
-    }
-}
-
 K_THREAD_DEFINE(ble_write_thread_id, STACKSIZE, ble_write_thread, NULL, NULL, NULL,
                 PRIORITY_BLE_TRANSMIT, 0, 0);
-K_THREAD_DEFINE(button_handler_thread, STACKSIZE, button_handler, NULL, NULL, NULL, PRIORITY_SERVER,
-                0, 0);
-K_THREAD_DEFINE(data_generator_thread, STACKSIZE, data_generator, NULL, NULL, NULL, PRIORITY_CLIENT,
-                0, 0);
