@@ -24,6 +24,7 @@
 #include <zephyr/settings/settings.h>
 #include <zephyr/types.h>
 
+
 #define STACKSIZE CONFIG_BT_NUS_THREAD_STACK_SIZE
 #define PRIORITY_BLE_TRANSMIT 7
 
@@ -142,7 +143,9 @@ static void bt_receive_cb(struct bt_conn* conn, const uint8_t* const data, uint1
         else {
             if (strncmp(tx->data, "start", 5) == 0) {
                 k_sem_give(&start_command);
+                LOG_INF("start received");
             }
+            LOG_INF("something else received");
         }
     }
 }
@@ -191,12 +194,29 @@ enum state_e get_state()
     return state;
 }
 
+int crypto_init(void)
+{
+    psa_status_t status;
+
+    /* Initialize PSA Crypto */
+    status = psa_crypto_init();
+    if (status != PSA_SUCCESS)
+        return -1;
+
+    return 0;
+}
+
 int main(void)
 {
     int blink_status = 0;
     int err = 0;
 
     configure_gpio();
+
+    err = crypto_init();
+    if (err) {
+        error();
+    }
 
     err = bt_enable(NULL);
     if (err) {

@@ -13,14 +13,22 @@ bool validate(struct uart_data_t* data)
 // Runnable for sensor thread which take care of sensor reading
 void data_generator(void* arg0, void* arg1, void* agr2)
 {
-    char sensor_reading[5];
+    uint8_t sensor_reading[5];
     bool is_valid = false;
 
     while (1) {
         k_sem_take(&start_command, K_FOREVER);
         request_state(CLIENT);
+        LOG_INF("start client");
 
         sys_rand_get(sensor_reading, 5);
+        psa_status_t status = psa_generate_random(sensor_reading, sizeof(sensor_reading));
+        if (status != PSA_SUCCESS) {
+            LOG_INF("psa_generate_random failed! (Error: %d)", status);
+            reset_state();
+            continue;
+        }
+
         LOG_HEXDUMP_INF(sensor_reading, sizeof(sensor_reading), "Sensor_reading :");
 
         //  Allocate memory for the UART data structure

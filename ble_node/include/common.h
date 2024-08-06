@@ -1,6 +1,8 @@
 #ifndef COMMON_THREAD_H_
 #define COMMON_THREAD_H_
 
+#include <psa/crypto.h>
+#include <psa/crypto_extra.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 
