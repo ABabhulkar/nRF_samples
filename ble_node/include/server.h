@@ -11,6 +11,7 @@
 
 #define SERVER_THREAD_STACKSIZE 1024
 #define PRIORITY_SERVER 8
+#define SHA256_SIZE (32)
 
 EXTERN_C struct k_fifo fifo_server_response;
 

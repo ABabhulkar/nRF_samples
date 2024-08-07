@@ -134,6 +134,8 @@ static void bt_receive_cb(struct bt_conn* conn, const uint8_t* const data, uint1
             tx->len++;
         }
 
+        // TODO: add handling for named communication
+
         // Logic to identify and route msg to threads
         if (state == SERVER) {
             k_fifo_put(&fifo_server_response, tx);
@@ -258,6 +260,7 @@ void ble_write_thread(void)
         /* Wait indefinitely for data to be sent over bluetooth */
         struct uart_data_t* buf = k_fifo_get(&fifo_tx_data, K_FOREVER);
 
+        // TODO: add handling for named communication
         if (bt_nus_send(NULL, buf->data, buf->len)) {
             LOG_WRN("Failed to send data over BLE connection");
         }
