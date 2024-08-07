@@ -24,6 +24,7 @@
 	- Mailbox
 
 ### Crypto
+- [[nRF Security]]
 - [[Random number]]
 
 #### Logging
@@ -45,3 +46,4 @@
 ##### Others
 - https://zephyrproject.org/expert-insights-into-test-driven-development-pytest-integration-emulators-and-unit-testing/
 - [nRF connect doc link](https://docs.nordicsemi.com/bundle/ncs-latest/page/nrf/installation/install_ncs.html)
+- https://mbed-tls.readthedocs.io/en/latest/ ^257758

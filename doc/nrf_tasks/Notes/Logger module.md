@@ -41,4 +41,9 @@ There are two configuration categories for the logger module: configurations per
    ``#include <zephyr/logging/log.h>``
 3. Register your code with the logger module.
    ``LOG_MODULE_REGISTER(Less4_Exer2,LOG_LEVEL_DBG);``
-   
+
+##### [Logging in a module](https://docs.zephyrproject.org/latest/services/logging/index.html#logging-in-a-module)
+If we have a module with more than one file and what to use same logger then following configuration is applied. Example is present in [[[NRF-5] 1C - 2P Communication bridge]] node 
+- If the module consists of multiple files, then `LOG_MODULE_REGISTER()` should appear in exactly one of them.
+- Each other file should use [`LOG_MODULE_DECLARE`](https://docs.zephyrproject.org/latest/services/logging/index.html#c.LOG_MODULE_DECLARE "LOG_MODULE_DECLARE") to declare its membership in the module.
+- In order to use logging API in a function implemented in a header file [`LOG_MODULE_DECLARE`](https://docs.zephyrproject.org/latest/services/logging/index.html#c.LOG_MODULE_DECLARE "LOG_MODULE_DECLARE") macro must be used in the function body before logging API is called.

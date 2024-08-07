@@ -31,7 +31,7 @@ sequenceDiagram
     alt same
         Node2-->>Central: completed
         Central-->>+Node1: 
-        Node1->>-Node1: Log completion status and update counter
+        Node1->>-Node1: Log completion
     else different
         Node2-->>-Central: Mismatch
         Central-->>-Node1: 

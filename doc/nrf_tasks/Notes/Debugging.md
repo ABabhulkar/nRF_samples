@@ -2,7 +2,7 @@
 In monitor mode, the debugger lets the CPU debug parts of an application while crucial functions continue. Monitor mode is useful for timing-critical applications like Bluetooth Low Energy or PWM, where halting the entire application will affect the timing-critical aspects.
 
 To enable monitor mode for the application, do the following:
-1. In the application configuration file, enable the Kconfig options `[CONFIG_CORTEX_M_DEBUG_MONITOR_HOOK](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/index.html#CONFIG_CORTEX_M_DEBUG_MONITOR_HOOK)` and `[CONFIG_SEGGER_DEBUGMON](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/index.html#CONFIG_SEGGER_DEBUGMON)`.
+1. In the application configuration file, enable the Kconfig options [CONFIG_CORTEX_M_DEBUG_MONITOR_HOOK](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/index.html#CONFIG_CORTEX_M_DEBUG_MONITOR_HOOK)` and `[CONFIG_SEGGER_DEBUGMON](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/index.html#CONFIG_SEGGER_DEBUGMON).
 2. Enable monitor mode for the debugger you are using. For nRF Debug in nRF Connect for VS Code extension, enter `-exec monitor exec SetMonModeDebug=1` in the debug console to enable monitor mode.
 ![[Pasted image 20240717100017.png]]
 

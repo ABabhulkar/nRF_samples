@@ -2,8 +2,8 @@
 Epic: "[[[NRF-E2] BLE sample with multi threading]]"
 Created: 2024-07-03
 Due: 
-Status: Backlog
-Assigned to: 
+Status: InProgress
+Assigned to: "[[Abhishek]]"
 tags:
   - BLE_UART
   - Central
@@ -18,9 +18,9 @@ Things to learn:
 - SHA-1/SHA-2 hashing using crypto cell
 #### Sub-Task
 - [ ] Use applications created in [NRF-3] and [NRF-4] to create a communication bridge
-- [ ] Central should do following tasks
-	- [ ] Maintain connection of 2 nodes and assign them node_id
-	- [ ] Relay data received from 1 node to other if node_id matches 
+- [x] Central should do following tasks [[[NRF-4] Update UART central to connect with 2 nodes|[NRF-4]\]]
+	- [x] Maintain connection of 2 nodes and assign them node_id
+	- [x] Relay data received from 1 node to other if node_id matches 
 - [ ] Each node should do following tasks
 	- [ ] Connect with central and maintain connection on 1 thread
 	- [ ] In second thread monitor SW1. If SW1 is pressed then start following sequence.

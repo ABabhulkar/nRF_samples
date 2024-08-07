@@ -10,7 +10,7 @@
 - Testing frameworks [[[NRF-9] Debugging and testing of applications|[NRF-9]\]]
 - Inter thread communication ( [[FIFO]], [[Message queue]], [[Mailboxes]])✅
 - Zephyr OS networking stack [[[NRF-10] Complete academy for BLE and WiFi]]
-	- [[Using sniffer]]
+	- [[Using sniffer]] ✅
 - file system support
 - NV memory
 - [Events](https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/kernel/services/synchronization/events.html) ✅

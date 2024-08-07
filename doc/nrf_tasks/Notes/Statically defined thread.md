@@ -14,6 +14,10 @@ Source is [[_Index#^57fbd5]]
 - **delay:** delay before the thread starts
 
 > [!Important]
+> ``K_THREAD_DEFINE`` can't be defined in header file it has to be defined in source file. 
+> Otherwise you will get error  `multiple definition of '< name >'`
+
+> [!Important]
 > Stack sizes should always be a power of two (512, 1024, 2048, etc.).
 > Stack size should be chosen more carefully, to avoid unnecessarily using memory. We do not need that here for a simple application.
 

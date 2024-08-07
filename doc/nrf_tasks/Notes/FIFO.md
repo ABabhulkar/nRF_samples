@@ -47,3 +47,6 @@ k_free(rec_item);
 > 
 > Also, it’s important to remember that you can NOT add the same data item twice in a FIFO. This is likely to break the linked list used by the FIFO internally, and results in undefined behavior.
 
+> [!NOTE]
+> Use ``K_MSEC()`` macro to define timeouts
+
