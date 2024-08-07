@@ -39,6 +39,7 @@
 LOG_MODULE_REGISTER(LOG_MODULE_NAME);
 
 static K_SEM_DEFINE(ble_init_ok, 0, 1);
+K_FIFO_DEFINE(fifo_tx_data);
 
 static struct bt_conn* current_conn;
 static struct bt_conn* auth_conn;
@@ -142,10 +143,8 @@ static void bt_receive_cb(struct bt_conn* conn, const uint8_t* const data, uint1
         }
         else {
             if (strncmp(tx->data, "start", 5) == 0) {
-                k_sem_give(&start_command);
-                LOG_INF("start received");
+                start_generator();
             }
-            LOG_INF("something else received");
         }
     }
 }

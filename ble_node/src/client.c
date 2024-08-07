@@ -1,13 +1,21 @@
 #include "client.h"
 
 #include "common.h"
+#include "zephyr/kernel.h"
 
 LOG_MODULE_DECLARE(LOG_MODULE_NAME);
+static K_SEM_DEFINE(start_command, 0, 1);
+K_FIFO_DEFINE(fifo_client_response);
 
 bool validate(struct uart_data_t* data)
 {
     // TODO: validate the date and generate ack
     return true;
+}
+
+void start_generator()
+{
+    k_sem_give(&start_command);
 }
 
 // Runnable for sensor thread which take care of sensor reading
@@ -19,7 +27,6 @@ void data_generator(void* arg0, void* arg1, void* agr2)
     while (1) {
         k_sem_take(&start_command, K_FOREVER);
         request_state(CLIENT);
-        LOG_INF("start client");
 
         sys_rand_get(sensor_reading, 5);
         psa_status_t status = psa_generate_random(sensor_reading, sizeof(sensor_reading));
