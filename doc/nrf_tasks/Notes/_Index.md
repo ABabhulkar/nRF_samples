@@ -26,10 +26,15 @@
 ### Crypto
 - [[nRF Security]]
 - [[Random number]]
+- [[Hash SHA256]]
 
 #### Logging
 - [[printk()]]
 - [[Logger module]]
+
+#### WiFi
+- [[Wifi basics]]
+- [[Connecting to WiFi]]
 
 ### References
 ##### Videos

@@ -1,0 +1,31 @@
+{
+	"nodes":[
+		{"id":"cf98809d996d531f","type":"text","text":"1: Enable Wifi","x":-520,"y":-360,"width":160,"height":50,"color":"4"},
+		{"id":"a55558fd4032c834","x":-880,"y":-455,"width":300,"height":240,"type":"text","text":"By adding following Kconfig\n```c-like \n# enables general wifi\nCONFIG_WIFI=y\n# Nordic drivers\nCONFIG_WIFI_NRF700X=y\n# WPS supplicant support\nCONFIG_WPA_SUPP=y\n```"},
+		{"id":"948a3924eeca1da1","type":"text","text":"2: Enable API","x":-280,"y":-360,"width":160,"height":50,"color":"4"},
+		{"id":"cb0b9c7f7d23d8f3","type":"text","text":"Include following headers\n```c-like\n#include <zephyr/net/wifi.h>\n#include <zephyr/net/wifi_mgmt.h>\n#include <zephyr/net/net_mgmt.h>\n```","x":-392,"y":-580,"width":385,"height":160},
+		{"id":"7d92fb1c1a6fef93","type":"text","text":"3: Configure wifi parameters","x":133,"y":-360,"width":280,"height":50,"color":"4"},
+		{"id":"330756b4dcc36342","type":"text","text":"By adding following Kconfig\n```c-like\nCONFIG_NET_MGMT=y\n# Runtime network event notification\nCONFIG_NET_MGMT_EVENT=y\n# passing event information\nCONFIG_NET_MGMT_EVENT_INFO=y\nCONFIG_NET_MGMT_EVENT_STACK_SIZE=4096\n```","x":-405,"y":-240,"width":410,"height":235},
+		{"id":"7bc799b28369982c","x":41,"y":-240,"width":465,"height":365,"type":"text","text":"The parameters are passed in the structure [struct wifi_connect_req_params](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/connectivity/networking/api/wifi.html#c.wifi_connect_req_params) \n```c-like\nstatic struct wifi_connect_req_params params = {\n    .ssid = CONFIG_SSID;\n    .ssid_length = strlen(params->ssid);\n    .psk = CONFIG_PASSWORD;\n    .psk_length = strlen(params->psk);\n    .channel = WIFI_CHANNEL_ANY;\n    .security = WIFI_SECURITY_TYPE_PSK;\n    .mfp = WIFI_MFP_OPTIONAL;\n    .timeout = SYS_FOREVER_MS;\n}\n```"},
+		{"id":"4a141c82ec2f6dba","type":"text","text":"4: Request Wifi connection","x":506,"y":-360,"width":280,"height":50,"color":"4"},
+		{"id":"55fd40b10e789f81","type":"text","text":"All network management requests are called using [net_mgmt()](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/connectivity/networking/api/net_mgmt.html#c.net_mgmt) \n```c-like\nstruct net_if *iface = net_if_get_first_wifi();\nint err = net_mgmt(NET_REQUEST_WIFI_CONNECT, iface, &params, sizeof(struct wifi_connect_req_params));\nif (err) \n{\n  LOG_ERR(\"Connecting to Wi-Fi failed, err: %d\", err);\n  return ENOEXEC;\n}\n```","x":368,"y":-720,"width":557,"height":280},
+		{"id":"7aa74e3150523c4f","type":"text","text":"5: Listen to network events","x":900,"y":-360,"width":280,"height":50,"color":"4"},
+		{"id":"4a96d45acb9e19d8","x":589,"y":-190,"width":394,"height":240,"type":"text","text":"Register a callback function to listen to network events\n- The Wi-Fi-related network events are defined in the [Wi-Fi Management API](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/connectivity/networking/api/wifi.html) \n- Network connection manager adds a layer of abstraction to your application to easily be able to port"},
+		{"id":"8b41afc90f28d320","type":"text","text":"Define the callback function `net_mgmt_event_handler()`\n```c-like\nstatic void net_mgmt_event_handler(struct net_mgmt_event_callback *cb, uint32_t mgmt_event, struct net_if *iface)\n{\n  if ((mgmt_event & EVENT_MASK) != mgmt_event) {\n    return;\n  }\n  if (mgmt_event == NET_EVENT_L4_CONNECTED) {\n    LOG_INF(\"Network connected\");\n    k_sem_give(&run_app);\n    return;\n  }\n  if (mgmt_event == NET_EVENT_L4_DISCONNECTED) {\n    if (connected == false) {\n      LOG_INF(\"Waiting for network to be connected\");\n    } else {\n      LOG_INF(\"Network disconnected\");\n      connected = false;\n    }\n    k_sem_reset(&run_app);\n    return;\n  }\n}\n```","x":1000,"y":-190,"width":640,"height":580},
+		{"id":"aaea8f90e3d3f5c1","x":1000,"y":-632,"width":480,"height":192,"type":"text","text":"Initialize and add the callback structure\n```c\nstatic struct net_mgmt_event_callback mgmt_cb;\nnet_mgmt_init_event_callback(&mgmt_cb, net_mgmt_event_handler, EVENT_MASK);\nnet_mgmt_add_event_callback(&mgmt_cb);\n```"}
+	],
+	"edges":[
+		{"id":"9254650b20d159d2","fromNode":"cf98809d996d531f","fromSide":"right","toNode":"948a3924eeca1da1","toSide":"left","color":"4"},
+		{"id":"fc451aa0e34b7196","fromNode":"a55558fd4032c834","fromSide":"right","toNode":"cf98809d996d531f","toSide":"left","toEnd":"none"},
+		{"id":"551d5ccde5e3bfbb","fromNode":"948a3924eeca1da1","fromSide":"bottom","toNode":"330756b4dcc36342","toSide":"top","toEnd":"none"},
+		{"id":"22d899b94971da5d","fromNode":"948a3924eeca1da1","fromSide":"top","toNode":"cb0b9c7f7d23d8f3","toSide":"bottom","toEnd":"none"},
+		{"id":"c77e99360176875b","fromNode":"948a3924eeca1da1","fromSide":"right","toNode":"7d92fb1c1a6fef93","toSide":"left","color":"4"},
+		{"id":"af6e432847ec8282","fromNode":"7d92fb1c1a6fef93","fromSide":"bottom","toNode":"7bc799b28369982c","toSide":"top","toEnd":"none"},
+		{"id":"2a8c8fc026d399d3","fromNode":"7d92fb1c1a6fef93","fromSide":"right","toNode":"4a141c82ec2f6dba","toSide":"left","color":"4"},
+		{"id":"9dc6983ff6d2dced","fromNode":"4a141c82ec2f6dba","fromSide":"top","toNode":"55fd40b10e789f81","toSide":"bottom","toEnd":"none"},
+		{"id":"da9f97e72dd85200","fromNode":"4a141c82ec2f6dba","fromSide":"right","toNode":"7aa74e3150523c4f","toSide":"left"},
+		{"id":"c5f574b9a7743902","fromNode":"7aa74e3150523c4f","fromSide":"bottom","toNode":"4a96d45acb9e19d8","toSide":"top","toEnd":"none"},
+		{"id":"8b73e3425cbe5bc2","fromNode":"7aa74e3150523c4f","fromSide":"bottom","toNode":"8b41afc90f28d320","toSide":"top","toEnd":"none"},
+		{"id":"87e7937f37169683","fromNode":"7aa74e3150523c4f","fromSide":"top","toNode":"aaea8f90e3d3f5c1","toSide":"bottom","toEnd":"none"}
+	]
+}

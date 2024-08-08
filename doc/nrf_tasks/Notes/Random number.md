@@ -1,4 +1,16 @@
+There are 2 ways to generate the random number in nRF connect:
+1. Using PSA api and mbedtls drivers (ARM Crypto cell HW)
+2. Using random number generator of zephyr
 
+#### Using PSA api
+**This way uses ARM crypto cell to generate cryptographic random values on supported platform.**
+- Configuration as specified in [[nRF Security]] has to be done
+- Initialize the library with a successful call to ``psa_crypto_init()``
+- use ``psa_generate_random()`` to generate random number and ``psa_random_key()`` to generate the key
+Example can be found in **`nrf/samples/crypto/rng`**
+
+#### Using Zephyr OS service
+**This is a faster way to generate random number is non-cryptographic values are needed.**
 Following is example for Random number generation along with [[FIFO]].
 
 ```c-like

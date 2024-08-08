@@ -4,37 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "cf90ec2a38686644",
+        "id": "5233851cbc7e8b2f",
         "type": "tabs",
         "children": [
           {
-            "id": "720083f1511e2c8c",
+            "id": "3908260d3cc47c42",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/nRF Security.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "cd1659efced9c33e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Notes/nRF Security.md",
+                "file": "Notes/Connecting to WiFi.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -100,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/nRF Security.md",
+                "file": "Notes/Connecting to WiFi.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/nRF Security.md",
+                "file": "Notes/Connecting to WiFi.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/nRF Security.md"
+                "file": "Notes/Connecting to WiFi.md"
               }
             }
           },
@@ -172,10 +158,24 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "cd1659efced9c33e",
+  "active": "3908260d3cc47c42",
   "lastOpenFiles": [
+    "tasks/[NRF-11] WiFi provisioning using http server.md",
+    "Notes/Connecting to WiFi.md",
+    "Notes/Setup Network management API.canvas",
+    "Notes/Implementation of mailbox.canvas",
     "Notes/_Index.md",
+    "Notes/Wifi basics.md",
+    "_assets/Pasted image 20240808103638.png",
+    "_assets/Pasted image 20240808103005.png",
+    "Notes/Boot sequence.canvas",
+    "Notes/GPIO API.canvas",
+    "Notes/Time sequences for scheduling.canvas",
+    "README.md",
+    "Topics to cover.md",
     "Notes/nRF Security.md",
+    "Notes/Hash SHA256.md",
+    "Notes/Random number.md",
     "tasks/[NRF-6] Simple application with OTA.md",
     "tasks/[NRF-5] 1C - 2P Communication bridge.md",
     "Notes/Debugging.md",
@@ -184,10 +184,7 @@
     "Notes/Semaphores.md",
     "Notes/Adding custom configurations.md",
     "Notes/Using sniffer.md",
-    "Topics to cover.md",
-    "README.md",
     "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
-    "Notes/Random number.md",
     "Notes/Threads.md",
     "Notes/Statically defined thread.md",
     "Notes/FIFO.md",
@@ -198,22 +195,12 @@
     "Notes/sysbuild.md",
     "Notes/Mailboxes.md",
     "Notes/Elements of SDK.md",
-    "Notes/Boot sequence.canvas",
-    "Notes/Implementation of mailbox.canvas",
-    "Notes/Testing with ZTest.md",
-    "Notes/Untitled.md",
-    "Notes/Message queue.md",
-    "tasks/[NRF-7] Zephyr RTOS beyond basics.md",
-    "Notes/Time sequences for scheduling.canvas",
     "_assets/Pasted image 20240717101226.png",
     "_assets/Pasted image 20240717100017.png",
     "_assets/Pasted image 20240716105953.png",
     "_assets/Pasted image 20240705112255.png",
     "_assets/Pasted image 20240705112649.png",
     "_assets/Pasted image 20240705135118.png",
-    "_assets/Pasted image 20240706160046.png",
-    "_assets/Pasted image 20240706161640.png",
-    "Notes/GPIO API.canvas",
     "_assets/clang-format.txt",
     "Notes",
     "tasks",
