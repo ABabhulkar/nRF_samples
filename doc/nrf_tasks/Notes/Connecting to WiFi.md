@@ -28,3 +28,47 @@ There are 3 ways to provision the wifi
 - Provision over shell
 - Provisioning over BLE
 - [[[NRF-11] WiFi provisioning using http server]]
+
+#### WiFi credentials backend
+Wi-Fi credentials library provides two different backend options for credential storage:
+- Zephyr’s settings subsystem - NVM based
+- PSA Protected Storage - TF-M based
+
+##### PSA protected storage
+- PSA backend requires TF-M which is only included when building with TF-M (“non-secure” board target)
+- Create board specific file and put following 
+```c-like
+CONFIG_WIFI_CREDENTIALS_BACKEND_PSA=y
+CONFIG_TFM_PROFILE_TYPE_MEDIUM=y
+CONFIG_PM_PARTITION_SIZE_TFM_SRAM=0x18000
+CONFIG_MBEDTLS_HEAP_SIZE=16384 
+```
+
+##### Zephyr’s settings subsystem 
+- Create board specific file and put following 
+```c-like
+CONFIG_WIFI_CREDENTIALS_BACKEND_SETTINGS=y
+CONFIG_FLASH=y
+CONFIG_FLASH_PAGE_LAYOUT=y
+CONFIG_FLASH_MAP=y
+CONFIG_NVS=y
+CONFIG_SETTINGS=y
+CONFIG_SETTINGS_NVS=y
+```
+
+##### Steps to use the library
+- Include the header file for the Wi-Fi credentials library `#include <net/wifi_credentials.h>`
+- Enable support for issuing commands over shell in the application
+```c-like
+CONFIG_SHELL=y
+CONFIG_WIFI_CREDENTIALS_SHELL=y
+CONFIG_SHELL_STACK_SIZE=4400
+```
+- command to store the credentials
+```sh
+wifi_cred add "<your_network_SSID>" WPA2-PSK "<your_network_password>"
+```
+- command to automatically connect to the network that is stored
+```sh
+wifi_cred auto_connect
+```

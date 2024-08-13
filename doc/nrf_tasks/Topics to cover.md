@@ -20,6 +20,9 @@
 - Multi-domain build (link in build page) [[sysbuild]]
 - Arm Trust zone
 	- https://www.youtube.com/watch?v=2iQZJcsRnb4&list=PLJKv3qSDEE-lYuq5hMpJ_sSHQcuhO1S-P&index=9
+- zbus
+- Modular development
+	- Example is the mqtt example from nrf
 
 #### Things to do with nRF53 board
 - [ ] Nordic UART service switch (Sample 1C-1P): setup 1C-2P [[[NRF-3] Create first application|NRF3]], [[[NRF-4] Update UART central to connect with 2 nodes|NRF-4]], [[[NRF-5] 1C - 2P Communication bridge|NRF-5]]

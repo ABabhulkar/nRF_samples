@@ -35,6 +35,9 @@
 #### WiFi
 - [[Wifi basics]]
 - [[Connecting to WiFi]]
+- [[Network Protocol stack]]
+- [[MQTT over WiFi]]
+- 
 
 ### References
 ##### Videos

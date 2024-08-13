@@ -13,11 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Connecting to WiFi.md",
+                "file": "Topics to cover.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
+            }
+          },
+          {
+            "id": "2833865f3f178704",
+            "type": "leaf",
+            "state": {
+              "type": "obsidian-projects",
+              "state": {}
             }
           }
         ]
@@ -49,7 +57,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "wifi_cred",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Connecting to WiFi.md",
+                "file": "Topics to cover.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Connecting to WiFi.md",
+                "file": "Topics to cover.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Connecting to WiFi.md"
+                "file": "Topics to cover.md"
               }
             }
           },
@@ -160,19 +168,22 @@
   },
   "active": "3908260d3cc47c42",
   "lastOpenFiles": [
-    "tasks/[NRF-11] WiFi provisioning using http server.md",
+    "Topics to cover.md",
+    "README.md",
+    "Notes/MQTT over WiFi.md",
     "Notes/Connecting to WiFi.md",
-    "Notes/Setup Network management API.canvas",
-    "Notes/Implementation of mailbox.canvas",
     "Notes/_Index.md",
+    "Notes/Network Protocol stack.md",
+    "_assets/Pasted image 20240812133322.png",
+    "Notes/Setup Network management API.canvas",
+    "tasks/[NRF-11] WiFi provisioning using http server.md",
+    "Notes/Implementation of mailbox.canvas",
     "Notes/Wifi basics.md",
     "_assets/Pasted image 20240808103638.png",
     "_assets/Pasted image 20240808103005.png",
     "Notes/Boot sequence.canvas",
     "Notes/GPIO API.canvas",
     "Notes/Time sequences for scheduling.canvas",
-    "README.md",
-    "Topics to cover.md",
     "Notes/nRF Security.md",
     "Notes/Hash SHA256.md",
     "Notes/Random number.md",
@@ -193,14 +204,11 @@
     "_assets/Pasted image 20240729152055.png",
     "_assets/Pasted image 20240729110926.png",
     "Notes/sysbuild.md",
-    "Notes/Mailboxes.md",
-    "Notes/Elements of SDK.md",
     "_assets/Pasted image 20240717101226.png",
     "_assets/Pasted image 20240717100017.png",
     "_assets/Pasted image 20240716105953.png",
     "_assets/Pasted image 20240705112255.png",
     "_assets/Pasted image 20240705112649.png",
-    "_assets/Pasted image 20240705135118.png",
     "_assets/clang-format.txt",
     "Notes",
     "tasks",
