@@ -20,7 +20,7 @@
 - Multi-domain build (link in build page) [[sysbuild]]
 - Arm Trust zone
 	- https://www.youtube.com/watch?v=2iQZJcsRnb4&list=PLJKv3qSDEE-lYuq5hMpJ_sSHQcuhO1S-P&index=9
-- zbus
+- [[zbus]]
 - Modular development
 	- Example is the mqtt example from nrf
 

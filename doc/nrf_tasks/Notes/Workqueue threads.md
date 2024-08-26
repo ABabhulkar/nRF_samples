@@ -158,3 +158,14 @@ K_THREAD_DEFINE(thread1_id, THREAD1_STACKSIZE, thread1, NULL, NULL, NULL, THREAD
 Now the timing looks something like below:![[Pasted image 20240709113118.png]]
 > [!Example]
 > This is an example of good architecture as we only keep urgent work to be processed in higher priorities and non-urgent work is offloaded to the appropriate lower priority. As an application designer on the RTOS, you should be aware of the kernel services provided to the application and make best use of it so as to avoid unnecessary latencies
+
+#### Scheduling a Delayable Work Item
+- A delayable work item is defined using a variable of type [`k_work_delayable`](https://docs.zephyrproject.org/latest/doxygen/html/structk__work__delayable.html). It must be initialized by calling [`k_work_init_delayable()`](https://docs.zephyrproject.org/latest/doxygen/html/group__workqueue__apis.html#ga2876c5d82fb2340a093bc4d689a55465).
+- [`k_work_schedule()`](https://docs.zephyrproject.org/latest/doxygen/html/group__workqueue__apis.html#ga5c113ea2bc8e8e5cd7a5c8bc5ec595d3) (or [`k_work_schedule_for_queue()`](https://docs.zephyrproject.org/latest/doxygen/html/group__workqueue__apis.html#ga17f863c9f6ff2fb41dc0f3b7de4fdf23)) schedules work to be executed at a specific time or after a delay. Further attempts to schedule the same item with this API before the delay completes will not change the time at which the item will be submitted to its queue. Use this if the policy is to keep collecting data until a specified delay since the **first** unprocessed data was received
+- [`k_work_reschedule()`](https://docs.zephyrproject.org/latest/doxygen/html/group__workqueue__apis.html#gaacaab408fb7c848d466ad1f069dfa648) (or [`k_work_reschedule_for_queue()`](https://docs.zephyrproject.org/latest/doxygen/html/group__workqueue__apis.html#gabf5db091eac19b19a4e12c0cb381f0a8)) unconditionally sets the deadline for the work, replacing any previous incomplete delay and changing the destination queue if necessary. Use this if the policy is to keep collecting data until a specified delay since the **last** unprocessed data was received.
+- If the work item is not scheduled both APIs behave the same. If [`K_NO_WAIT`](https://docs.zephyrproject.org/latest/doxygen/html/group__clock__apis.html#ga3d9541cfe2e8395af66d186efa77362f) is specified as the delay the behavior is as if the item was immediately submitted directly to the target queue, without waiting for a minimal timeout (unless [`k_work_schedule()`](https://docs.zephyrproject.org/latest/doxygen/html/group__workqueue__apis.html#ga5c113ea2bc8e8e5cd7a5c8bc5ec595d3) is used and a previous delay has not completed)
+- The example is in nordic UART service to receive the incoming data from the UART.
+
+> [!Example]
+> An example is collecting data that comes in asynchronously, e.g. characters from a UART associated with a keyboard. There are two APIs that submit work after a delay
+

@@ -37,7 +37,7 @@
 - [[Connecting to WiFi]]
 - [[Network Protocol stack]]
 - [[MQTT over WiFi]]
-- 
+- [[HTTP client]]
 
 ### References
 ##### Videos

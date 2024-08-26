@@ -4,11 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "5233851cbc7e8b2f",
+        "id": "6d4052d3742751c5",
         "type": "tabs",
         "children": [
           {
-            "id": "3908260d3cc47c42",
+            "id": "d849b9480a7ab490",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes/zbus.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c77de7375e59b88d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,16 +32,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "2833865f3f178704",
-            "type": "leaf",
-            "state": {
-              "type": "obsidian-projects",
-              "state": {}
-            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -57,7 +63,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "wifi_cred",
+                "query": "workqueu",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -166,13 +172,21 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "3908260d3cc47c42",
+  "active": "c77de7375e59b88d",
   "lastOpenFiles": [
+    "Notes/Workqueue threads.md",
+    "Notes/Threads.md",
     "Topics to cover.md",
+    "tasks/[NRF-9] Debugging and testing of applications.md",
+    "Notes/zbus.md",
+    "Notes/_Index.md",
+    "Notes/WSL port forwarding.md",
+    "Notes/Testing with ZTest.md",
+    "Notes/Native Sim.md",
+    "Notes/HTTP client.md",
     "README.md",
     "Notes/MQTT over WiFi.md",
     "Notes/Connecting to WiFi.md",
-    "Notes/_Index.md",
     "Notes/Network Protocol stack.md",
     "_assets/Pasted image 20240812133322.png",
     "Notes/Setup Network management API.canvas",
@@ -194,16 +208,8 @@
     "Notes/Build config.md",
     "Notes/Semaphores.md",
     "Notes/Adding custom configurations.md",
-    "Notes/Using sniffer.md",
-    "tasks/[NRF-4] Update UART central to connect with 2 nodes.md",
-    "Notes/Threads.md",
-    "Notes/Statically defined thread.md",
-    "Notes/FIFO.md",
-    "tasks/[NRF-3] Create first application.md",
-    "tasks/[NRF-10] Complete academy for BLE and WiFi.md",
     "_assets/Pasted image 20240729152055.png",
     "_assets/Pasted image 20240729110926.png",
-    "Notes/sysbuild.md",
     "_assets/Pasted image 20240717101226.png",
     "_assets/Pasted image 20240717100017.png",
     "_assets/Pasted image 20240716105953.png",

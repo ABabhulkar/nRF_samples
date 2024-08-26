@@ -14,6 +14,16 @@ python ..\..\ncs\v2.6.0\zephyr\scripts\twister --generate-hardware-map map.yml
 ```
 This is command to generate the map file for the HW. later open the file and update all the information into it. More details are available on nordic documentation.
 
+
+##### Running on native_sim
+
+^f416ce
+
+```sh
+west twister -p native_sim_64 -T tests
+```
+- This command will run all tests in the project on native_sim target
+
 #### Reference
 - https://www.youtube.com/watch?v=MjdTHEeBq9o
 	- This video shows how to get the HW testing working and basics of ZTest
