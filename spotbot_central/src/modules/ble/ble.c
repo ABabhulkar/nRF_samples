@@ -1,7 +1,9 @@
+#include "../../common/messages.h"
 #include "zephyr/sys/util.h"
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <zephyr/bluetooth/bluetooth.h>
 #include <zephyr/bluetooth/conn.h>
 #include <zephyr/bluetooth/gatt.h>
@@ -10,9 +12,12 @@
 #include <zephyr/sys/byteorder.h>
 #include <zephyr/sys/printk.h>
 #include <zephyr/types.h>
+#include <zephyr/zbus/zbus.h>
 
 
 LOG_MODULE_REGISTER(Ble_module, LOG_LEVEL_DBG);
+
+ZBUS_CHAN_DECLARE(TX_CHANNEL);
 
 static void start_scan(void);
 
@@ -32,8 +37,7 @@ static struct k_work_q tx_work_q = {0};
 // Creatt Transmission_frame structure and offload function
 struct Transmission_frame {
     struct k_work work;
-    uint8_t data[25];
-    uint8_t size;
+    struct tx_msg* msg;
 };
 
 static struct Transmission_frame tx_frame = {0};
@@ -64,8 +68,10 @@ static void device_found(const bt_addr_le_t* addr, int8_t rsi, uint8_t type,
     bt_addr_le_to_str(addr, addr_str, sizeof(addr_str));
 
     // Copy recived frame into buffer for transmission.
-    tx_frame.size = ad->len;
-    memcpy(tx_frame.data, ad->data, tx_frame.size);
+    tx_frame.msg = (struct tx_msg*)malloc(sizeof(struct tx_msg));
+    tx_frame.msg->size = ad->len;
+    tx_frame.msg->data = (uint8_t*)malloc(sizeof(tx_frame.msg->size));
+    memcpy(tx_frame.msg->data, ad->data, tx_frame.msg->size);
 
     k_work_submit(&tx_frame.work);
     LOG_DBG("Device found: %s (RSSI %d) \n", addr_str, rsi);
@@ -95,13 +101,12 @@ static void start_scan(void)
     LOG_INF("Scanning successfully started\n");
 }
 
-void offload_function(struct k_work* work_tem)
+void dl_tx_frame_handler(struct k_work* work_tem)
 {
     struct Transmission_frame* _tx_frame = CONTAINER_OF(work_tem, struct Transmission_frame, work);
-    LOG_DBG("%d", _tx_frame->size);
-    LOG_HEXDUMP_DBG(_tx_frame->data, _tx_frame->size, "Data: ");
 
-    // TODO: Put the data on channel
+    // Put the data on channel
+    zbus_chan_pub(&tx_ch, _tx_frame->msg, K_FOREVER);
 }
 
 static void init_ble(int thread_id, void* unused, void* unused2)
@@ -119,10 +124,10 @@ static void init_ble(int thread_id, void* unused, void* unused2)
                        WORKQ_PRIORITY, NULL);
 
     // Initialize work item and connect it to its handler function
-    k_work_init(&tx_frame.work, offload_function);
+    k_work_init(&tx_frame.work, dl_tx_frame_handler);
 
     LOG_INF("Bluetooth initialized\n");
     start_scan();
 }
 
-K_THREAD_DEFINE(consumer, STACKSIZE, init_ble, 1, NULL, NULL, BLE_INT_THREAD_PRIORITY, 0, 0);
+K_THREAD_DEFINE(ble_init_thread, STACKSIZE, init_ble, 1, NULL, NULL, BLE_INT_THREAD_PRIORITY, 0, 0);
