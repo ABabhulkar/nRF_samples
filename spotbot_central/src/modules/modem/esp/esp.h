@@ -3,6 +3,7 @@
 
 #include "../network_interface.h"
 
+void esp_init();
 void esp_connect(Connection_param* con_param);
 void esp_subscribe(const char* topic[], uint16_t num_topics);
 bool esp_isConnected();

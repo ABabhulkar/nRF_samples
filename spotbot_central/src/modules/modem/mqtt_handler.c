@@ -79,6 +79,9 @@ static void init_mqtt_handler(int thread_id, void* unused, void* unused2)
         return;
     }
 
+    // Initialize device
+    con->init();
+
     // connect to mqtt
     con->connect(&con->con_param);
 

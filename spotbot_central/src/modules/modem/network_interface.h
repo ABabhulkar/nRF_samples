@@ -1,7 +1,7 @@
 #ifndef _NETWORK_INTERFACE_H_
 #define _NETWORK_INTERFACE_H_
 
-#include "../../common/messages.h"
+#include "common/messages.h"
 #include "zephyr/bluetooth/addr.h"
 
 #include <stdbool.h>
@@ -18,6 +18,7 @@ typedef struct {
 
 typedef struct {
     Connection_param con_param;
+    void (*init)();
     void (*connect)(Connection_param* con_param);
     void (*subscribe)(const char* topic[], uint16_t num_topics);
     bool (*isConnected)();

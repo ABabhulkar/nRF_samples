@@ -11,6 +11,7 @@ Connection* init_connection(network_type type, Connection_param param)
     switch (type) {
     case WIFI_ESP:
         con->con_param = param;
+        con->init = esp_init;
         con->connect = esp_connect;
         con->isConnected = esp_isConnected;
         con->reconnect = esp_reconnect;
