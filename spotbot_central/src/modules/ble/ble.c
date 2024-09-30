@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
 #include <zephyr/bluetooth/bluetooth.h>
 #include <zephyr/bluetooth/conn.h>
 #include <zephyr/bluetooth/gatt.h>
@@ -14,21 +15,18 @@
 #include <zephyr/types.h>
 #include <zephyr/zbus/zbus.h>
 
-
-LOG_MODULE_REGISTER(Ble_module, LOG_LEVEL_DBG);
-
-ZBUS_CHAN_DECLARE(TX_CHANNEL);
-
-static void start_scan(void);
-
-static struct bt_conn* default_conn;
-
 #define STACKSIZE 2048
 #define BLE_INT_THREAD_PRIORITY 6
 
 // Define constants for workqueue
 #define WORQ_THREAD_STACK_SIZE 512
 #define WORKQ_PRIORITY 4 // Lowest priority workqueue
+
+// Define parameters for the frame
+#define MAX_FRAME_SIZE 25
+
+LOG_MODULE_REGISTER(Ble_module, LOG_LEVEL_DBG);
+ZBUS_CHAN_DECLARE(TX_CHANNEL);
 
 // Define queue structure
 static K_THREAD_STACK_DEFINE(work_q_stack, WORQ_THREAD_STACK_SIZE);
@@ -37,7 +35,9 @@ static struct k_work_q tx_work_q = {0};
 // Creatt Transmission_frame structure and offload function
 struct Transmission_frame {
     struct k_work work;
-    struct tx_msg* msg;
+    bt_addr_t addr;
+    uint8_t ad_data[MAX_FRAME_SIZE];
+    uint16_t len;
 };
 
 static struct Transmission_frame tx_frame = {0};
@@ -47,17 +47,13 @@ static void device_found(const bt_addr_le_t* addr, int8_t rsi, uint8_t type,
 {
     char addr_str[BT_ADDR_LE_STR_LEN];
 
-    if (default_conn) {
-        return;
-    }
-
     /* We're only interested in connectable events */
     if (type != BT_GAP_ADV_TYPE_ADV_SCAN_IND) {
         return;
     }
 
     /* Can only connect to nordic devices */
-    if (ad->len < 4) {
+    if ((ad->len < 4) || (ad->len > MAX_FRAME_SIZE)) {
         return;
     }
 
@@ -68,10 +64,9 @@ static void device_found(const bt_addr_le_t* addr, int8_t rsi, uint8_t type,
     bt_addr_le_to_str(addr, addr_str, sizeof(addr_str));
 
     // Copy recived frame into buffer for transmission.
-    tx_frame.msg = (struct tx_msg*)malloc(sizeof(struct tx_msg));
-    tx_frame.msg->size = ad->len;
-    tx_frame.msg->data = (uint8_t*)malloc(sizeof(tx_frame.msg->size));
-    memcpy(tx_frame.msg->data, ad->data, tx_frame.msg->size);
+    tx_frame.len = ad->len;
+    memcpy(tx_frame.addr.val, addr->a.val, BT_ADDR_SIZE);
+    memcpy(tx_frame.ad_data, ad->data, tx_frame.len);
 
     k_work_submit(&tx_frame.work);
     LOG_DBG("Device found: %s (RSSI %d) \n", addr_str, rsi);
@@ -105,8 +100,39 @@ void dl_tx_frame_handler(struct k_work* work_tem)
 {
     struct Transmission_frame* _tx_frame = CONTAINER_OF(work_tem, struct Transmission_frame, work);
 
+    // TODO: process raw data and send on bus
+    node_data* node = (node_data*)malloc(sizeof(node_data));
+
+    int addr = ((int16_t)_tx_frame->ad_data[_tx_frame->len - 11] << 8) |
+               _tx_frame->ad_data[_tx_frame->len - 10];
+    node->x = ((int16_t)_tx_frame->ad_data[_tx_frame->len - 9] << 8) |
+              _tx_frame->ad_data[_tx_frame->len - 8];
+    node->y = ((int16_t)_tx_frame->ad_data[_tx_frame->len - 7] << 8) |
+              _tx_frame->ad_data[_tx_frame->len - 6];
+    node->z = ((int16_t)_tx_frame->ad_data[_tx_frame->len - 5] << 8) |
+              _tx_frame->ad_data[_tx_frame->len - 4];
+    node->temp = ((uint16_t)_tx_frame->ad_data[_tx_frame->len - 2] << 2) |
+                 _tx_frame->ad_data[_tx_frame->len - 1];
+    node->status = _tx_frame->ad_data[_tx_frame->len - 3];
+
+    if (addr == 0x0003) {
+        memcpy(node->node_id.val, _tx_frame->addr.val, BT_ADDR_SIZE);
+    }
+    else if (addr == 0x0203) {
+        node->node_id.val[5] = _tx_frame->ad_data[_tx_frame->len - 17];
+        node->node_id.val[4] = _tx_frame->ad_data[_tx_frame->len - 16];
+        node->node_id.val[3] = _tx_frame->ad_data[_tx_frame->len - 15];
+        node->node_id.val[2] = _tx_frame->ad_data[_tx_frame->len - 14];
+        node->node_id.val[1] = _tx_frame->ad_data[_tx_frame->len - 13];
+        node->node_id.val[0] = _tx_frame->ad_data[_tx_frame->len - 12];
+    }
+    else if (addr == 0x0007) {
+        // TODO update ip address as it is recived from ble frame
+        // TODO (NVM): check validity of recived ip and update stored ip notify of change
+    }
+
     // Put the data on channel
-    zbus_chan_pub(&tx_ch, _tx_frame->msg, K_FOREVER);
+    zbus_chan_pub(&tx_ch, node, K_FOREVER);
 }
 
 static void init_ble(int thread_id, void* unused, void* unused2)

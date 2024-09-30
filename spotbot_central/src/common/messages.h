@@ -1,12 +1,14 @@
 #ifndef _MESSAGES_H_
 #define _MESSAGES_H_
-#include <stdint.h>
+
+#include "zephyr/bluetooth/addr.h"
 
 #define TX_CHANNEL tx_ch
-
-struct tx_msg {
-    uint8_t* data;
-    uint8_t size;
-};
+typedef struct {
+    bt_addr_t node_id;
+    int16_t x, y, z;
+    uint8_t status;
+    uint16_t temp;
+} node_data;
 
 #endif /* _MESSAGES_H_ */

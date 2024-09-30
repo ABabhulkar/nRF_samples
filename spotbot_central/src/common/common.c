@@ -4,8 +4,8 @@
 #include <zephyr/zbus/zbus.h>
 
 
-ZBUS_CHAN_DEFINE(TX_CHANNEL,    /* Name */
-                 struct tx_msg, /* Message type */
+ZBUS_CHAN_DEFINE(TX_CHANNEL, /* Name */
+                 node_data,  /* Message type */
 
                  NULL,                 /* Validator */
                  NULL,                 /* User data */
