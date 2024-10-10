@@ -92,15 +92,16 @@ bool esp_isConnected()
 void esp_sendFrame(const char* topic, const char* msg)
 {
     // send frame over uart
-    uint8_t size = strlen(topic) + strlen(msg) + 6;
+    uint8_t size = strlen(topic) + strlen(msg) + 8;
     char tx_buf[size];
-    snprintf(tx_buf, size, "ID;%s;%s;\n", topic, msg);
+    snprintf(tx_buf, size, "ID;%s;%s;\r\n", topic, msg);
     print_uart(tx_buf);
 }
 
 void esp_reconnect()
 {
     // send reconnection request
+    LOG_DBG("Reconnect called");
 }
 
 // return: mack of the device in string form

@@ -1,4 +1,5 @@
 #include "../../common/messages.h"
+#include "../../common/nvm/nv_handler.h"
 #include "network_interface.h"
 
 #include <stddef.h>
@@ -13,20 +14,21 @@
 LOG_MODULE_REGISTER(mqtt_handler_module, LOG_LEVEL_DBG);
 
 ZBUS_CHAN_DECLARE(TX_CHANNEL);
+ZBUS_CHAN_DECLARE(CONFIG_UPDATE_CHANNEL);
 
 K_SEM_DEFINE(sem_init_complete, 0, 1);
 
 #define STACKSIZE 1024
 #define MQTT_INT_THREAD_PRIORITY 6
 #define MQTT_MONITOR_THREAD_PRIORITY 7
-#define DEFAULT_IP     \
-    {                  \
-        192, 168, 2, 1 \
-    }
+#define CONFIG_UPDATE_THREAD_PRIORITY 5
+
 #define DEFAULT_PORT 1883
 
 #define TOPIC "Default"
 #define CON_ACK "Connected to server"
+
+static const uint8_t DEFAULT_IP[4] = {192, 168, 2, 1};
 
 // Define network
 static Connection* con;
@@ -66,11 +68,47 @@ static void tx_frame_recived_cb(const struct zbus_channel* chan)
 ZBUS_LISTENER_DEFINE(tx_channel, tx_frame_recived_cb);
 ZBUS_CHAN_ADD_OBS(TX_CHANNEL, tx_channel, 1);
 
+ZBUS_SUBSCRIBER_DEFINE(config_update_sub, 2);
+ZBUS_CHAN_ADD_OBS(CONFIG_UPDATE_CHANNEL, config_update_sub, 1);
+
+static void subscriber_config_update(void* sub)
+{
+    const struct zbus_channel* chan;
+    const struct zbus_observer* subscriber = sub;
+
+    while (!zbus_sub_wait(subscriber, &chan, K_FOREVER)) {
+        if (&CONFIG_UPDATE_CHANNEL != chan) {
+            LOG_ERR("Wrong channel %p!", chan);
+            continue;
+        }
+
+        LOG_INF("New IP recived");
+        uint8_t temp_ip[4];
+        if (read_ip(temp_ip, DEFAULT_IP) == E_OK) {
+            memcpy(con->con_param.ip, temp_ip, sizeof(temp_ip));
+            con->reconnect();
+        }
+        else {
+            LOG_ERR("Error reading new IP");
+        }
+    }
+}
+
 static void init_mqtt_handler(int thread_id, void* unused, void* unused2)
 {
+    // Init nv storage
+    if (nv_init() != 0) {
+        LOG_ERR("NV is not initialized\n");
+        // TODO: implement fallback options
+    }
+
     // Define connection parameters
-    // TODO (NVM): read ip from nvm and pass it on to connect
-    Connection_param con_param = {.ip = {DEFAULT_IP}, .port = DEFAULT_PORT, .timeout = 0};
+    Connection_param con_param = {.port = DEFAULT_PORT, .timeout = 0};
+
+    // Read ip from nvm and pass it on to connect
+    if (read_ip(con_param.ip, DEFAULT_IP) != E_OK) {
+        LOG_DBG("Loading default ip due to error");
+    }
 
     // Register modem(wifi/4G)
     con = init_connection(WIFI_ESP, con_param);
@@ -116,3 +154,5 @@ K_THREAD_DEFINE(mqtt_monitor_thread, STACKSIZE, mqtt_monitor_conn, 1, NULL, NULL
                 MQTT_MONITOR_THREAD_PRIORITY, 0, 0);
 K_THREAD_DEFINE(mqtt_init_thread, STACKSIZE, init_mqtt_handler, 1, NULL, NULL,
                 MQTT_INT_THREAD_PRIORITY, 0, 0);
+K_THREAD_DEFINE(config_update_task, STACKSIZE, subscriber_config_update, &config_update_sub, NULL,
+                NULL, CONFIG_UPDATE_THREAD_PRIORITY, 0, 0);

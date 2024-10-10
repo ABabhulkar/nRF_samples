@@ -13,6 +13,8 @@ target_sources(app PRIVATE
   src/modules/modem/mqtt_handler.c
   src/modules/modem/network_interface.c
   src/modules/modem/esp/esp.c
+  src/modules/nvm/nv_handler.c
+  src/testApp/testapp.c
 )
 
 zephyr_library_include_directories(${ZEPHYR_BASE}/samples/bluetooth)

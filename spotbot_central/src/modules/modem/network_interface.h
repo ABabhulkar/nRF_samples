@@ -1,16 +1,13 @@
 #ifndef _NETWORK_INTERFACE_H_
 #define _NETWORK_INTERFACE_H_
 
-#include "common/messages.h"
-#include "zephyr/bluetooth/addr.h"
-
 #include <stdbool.h>
 #include <stdint.h>
 
 typedef enum network_type { WIFI_ESP, CELLULAR, WIFI_NRF } network_type;
 
 typedef struct {
-    bt_addr_t ip[4];
+    uint8_t ip[4];
     uint16_t port;
     uint8_t timeout;
     // TODO: add list of topics to subscribe

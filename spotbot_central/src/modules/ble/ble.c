@@ -1,4 +1,5 @@
 #include "../../common/messages.h"
+#include "../../common/nvm/nv_handler.h"
 #include "zephyr/sys/util.h"
 
 #include <stddef.h>
@@ -27,6 +28,7 @@
 
 LOG_MODULE_REGISTER(Ble_module, LOG_LEVEL_DBG);
 ZBUS_CHAN_DECLARE(TX_CHANNEL);
+ZBUS_CHAN_DECLARE(CONFIG_UPDATE_CHANNEL);
 
 // Define queue structure
 static K_THREAD_STACK_DEFINE(work_q_stack, WORQ_THREAD_STACK_SIZE);
@@ -127,12 +129,27 @@ void dl_tx_frame_handler(struct k_work* work_tem)
         node->node_id.val[0] = _tx_frame->ad_data[_tx_frame->len - 12];
     }
     else if (addr == 0x0007) {
-        // TODO update ip address as it is recived from ble frame
-        // TODO (NVM): check validity of recived ip and update stored ip notify of change
+        uint8_t ip[4] = {0, 0, 0, 0};
+        // Extract new IP from the BLE frame
+        ip[3] = _tx_frame->ad_data[_tx_frame->len - 9];
+        ip[2] = _tx_frame->ad_data[_tx_frame->len - 8];
+        ip[1] = _tx_frame->ad_data[_tx_frame->len - 7];
+        ip[0] = _tx_frame->ad_data[_tx_frame->len - 6];
+
+        // Check validity of recived ip and update stored ip
+        nvError err = write_ip(ip);
+        if (err == E_ALREADY_PRESENT) {
+            LOG_INF("Ip already present");
+            return;
+        }
+
+        // Notify of change ip to all listeners
+        zbus_chan_notify(&CONFIG_UPDATE_CHANNEL, K_NO_WAIT);
+        return;
     }
 
     // Put the data on channel
-    zbus_chan_pub(&tx_ch, node, K_FOREVER);
+    zbus_chan_pub(&TX_CHANNEL, node, K_FOREVER);
 }
 
 static void init_ble(int thread_id, void* unused, void* unused2)
@@ -142,6 +159,12 @@ static void init_ble(int thread_id, void* unused, void* unused2)
     if (err) {
         LOG_ERR("Bluetooth init failed (err %d)\n", err);
         return;
+    }
+
+    err = nv_init();
+    if (err != 0) {
+        LOG_ERR("NV is not initialized\n");
+        // TODO: implement fallback options
     }
 
     // Start the workqueue

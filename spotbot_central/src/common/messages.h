@@ -4,6 +4,8 @@
 #include "zephyr/bluetooth/addr.h"
 
 #define TX_CHANNEL tx_ch
+#define CONFIG_UPDATE_CHANNEL notify_config
+
 typedef struct {
     bt_addr_t node_id;
     int16_t x, y, z;
