@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Topics to cover.md",
+                "file": "Notes/zbus.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -63,7 +63,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "workqueu",
+                "query": "zbus",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -100,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Topics to cover.md",
+                "file": "Notes/zbus.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Topics to cover.md",
+                "file": "Notes/zbus.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Topics to cover.md"
+                "file": "Notes/zbus.md"
               }
             }
           },
@@ -174,12 +174,13 @@
   },
   "active": "c77de7375e59b88d",
   "lastOpenFiles": [
-    "Notes/Workqueue threads.md",
     "Notes/Threads.md",
-    "Topics to cover.md",
-    "tasks/[NRF-9] Debugging and testing of applications.md",
-    "Notes/zbus.md",
     "Notes/_Index.md",
+    "Topics to cover.md",
+    "Notes/zbus.md",
+    "Notes/Workqueue threads.md",
+    "Notes/Message queue.md",
+    "tasks/[NRF-9] Debugging and testing of applications.md",
     "Notes/WSL port forwarding.md",
     "Notes/Testing with ZTest.md",
     "Notes/Native Sim.md",
@@ -207,7 +208,6 @@
     "Notes/Logger module.md",
     "Notes/Build config.md",
     "Notes/Semaphores.md",
-    "Notes/Adding custom configurations.md",
     "_assets/Pasted image 20240729152055.png",
     "_assets/Pasted image 20240729110926.png",
     "_assets/Pasted image 20240717101226.png",
