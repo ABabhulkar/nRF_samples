@@ -4,37 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "6d4052d3742751c5",
+        "id": "c17c348a843fb2fe",
         "type": "tabs",
         "children": [
           {
-            "id": "d849b9480a7ab490",
+            "id": "273ea3cf971e0e08",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Notes/zbus.md",
                 "mode": "source",
+                "source": false,
                 "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c77de7375e59b88d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Topics to cover.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "zbus"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -53,8 +50,11 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
-              }
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -63,13 +63,15 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "workqueu",
-                "matchingCase": false,
+                "query": "line:(testing)",
+                "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -77,7 +79,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -100,7 +104,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Topics to cover.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +111,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
             }
           },
           {
@@ -117,10 +122,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Topics to cover.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
             }
           },
           {
@@ -130,8 +136,12 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
-              }
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -140,8 +150,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Topics to cover.md"
-              }
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
             }
           },
           {
@@ -149,16 +163,27 @@
             "type": "leaf",
             "state": {
               "type": "mermaid-toolbar-view",
-              "state": {}
+              "state": {},
+              "icon": "trident-custom",
+              "title": "Mermaid Toolbar"
+            }
+          },
+          {
+            "id": "8a3aa4fdf4938b6b",
+            "type": "leaf",
+            "state": {
+              "type": "git-history-view",
+              "state": {},
+              "icon": "history",
+              "title": "History"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -172,19 +197,23 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "c77de7375e59b88d",
+  "active": "273ea3cf971e0e08",
   "lastOpenFiles": [
-    "Notes/Workqueue threads.md",
-    "Notes/Threads.md",
+    "README.md",
     "Topics to cover.md",
-    "tasks/[NRF-9] Debugging and testing of applications.md",
     "Notes/zbus.md",
-    "Notes/_Index.md",
-    "Notes/WSL port forwarding.md",
     "Notes/Testing with ZTest.md",
+    "tasks/[NRF-9] Debugging and testing of applications.md",
     "Notes/Native Sim.md",
     "Notes/HTTP client.md",
-    "README.md",
+    "_assets/Pasted image 20240828125815.png",
+    "_assets/Pasted image 20240828120041.png",
+    "_assets/Pasted image 20240828115329.png",
+    "_assets/Pasted image 20240828103532.png",
+    "Notes/Workqueue threads.md",
+    "Notes/Threads.md",
+    "Notes/_Index.md",
+    "Notes/WSL port forwarding.md",
     "Notes/MQTT over WiFi.md",
     "Notes/Connecting to WiFi.md",
     "Notes/Network Protocol stack.md",
@@ -207,14 +236,9 @@
     "Notes/Logger module.md",
     "Notes/Build config.md",
     "Notes/Semaphores.md",
-    "Notes/Adding custom configurations.md",
     "_assets/Pasted image 20240729152055.png",
     "_assets/Pasted image 20240729110926.png",
     "_assets/Pasted image 20240717101226.png",
-    "_assets/Pasted image 20240717100017.png",
-    "_assets/Pasted image 20240716105953.png",
-    "_assets/Pasted image 20240705112255.png",
-    "_assets/Pasted image 20240705112649.png",
     "_assets/clang-format.txt",
     "Notes",
     "tasks",

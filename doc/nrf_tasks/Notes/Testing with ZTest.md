@@ -16,7 +16,6 @@ This is command to generate the map file for the HW. later open the file and upd
 
 
 ##### Running on native_sim
-
 ^f416ce
 
 ```sh

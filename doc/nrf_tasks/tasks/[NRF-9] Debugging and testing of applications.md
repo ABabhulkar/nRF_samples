@@ -51,3 +51,7 @@ TODO
 	- Install 32 bit c lib ``sudo apt-get install gcc-multilib``
 	- Then follow steps on https://docs.nordicsemi.com/bundle/ncs-latest/page/zephyr/boards/native/nrf_bsim/doc/nrf52_bsim.html
 	- Note that if any led or buttons are used in code then board overlay file has to be created.
+
+TODO
+- Ref: https://www.youtube.com/watch?v=WmAgXYTj4Fg
+- 
