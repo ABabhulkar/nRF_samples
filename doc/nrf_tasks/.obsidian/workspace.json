@@ -197,11 +197,12 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "c77de7375e59b88d",
+  "active": "273ea3cf971e0e08",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
+    "Notes/zbus.md",
     "README.md",
     "Topics to cover.md",
-    "Notes/zbus.md",
     "Notes/Testing with ZTest.md",
     "tasks/[NRF-9] Debugging and testing of applications.md",
     "Notes/Native Sim.md",
